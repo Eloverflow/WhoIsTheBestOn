@@ -2,7 +2,6 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/whoisthebest/libs/YouTubeAndroidPlayerApi.jar" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/whoisthebest/src/library" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/Fragment1.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/Fragment2.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/Fragment3.java" charset="UTF-8" />
@@ -41,5 +40,6 @@
     <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/library/NotificationsFunctions.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/library/UserFunctions.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/whoisthebest/src/main/res" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
