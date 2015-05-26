@@ -1,0 +1,84 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Header aligned to top -->
+
+    <RelativeLayout android:id="@+id/overlay_fragment_top"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_margin="0dp">
+
+
+        <!-- Header aligned to top -->
+
+       <!-- <LinearLayout
+            android:id="@+id/fragmentPagesHeader"
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:background="@color/colorTransparent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+        </LinearLayout>-->
+
+
+        <RelativeLayout
+            android:gravity="center"
+            android:id="@+id/overlay_fragment_body"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/fragmentPagesHeader"
+            android:background="@color/colorNoirTransparent"
+            android:onClick="killActivity" >
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
+                android:background="@drawable/button_challenge_action"
+                android:onClick="disconnect"
+                android:textSize="24sp"
+                android:text="Challenge !"
+                android:textColor="@color/colorMainText" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
+                android:background="@drawable/button_challenge_action"
+                android:textSize="24sp"
+                android:text="About"
+                android:textColor="@color/colorMainText"
+                android:onClick="seeChallenge"
+                android:layout_below="@+id/button1"
+                android:layout_alignLeft="@+id/button1"
+                android:layout_alignStart="@+id/button1"
+                android:layout_alignRight="@+id/button1"
+                android:layout_alignEnd="@+id/button1" />
+
+            <TextView
+                android:id="@+id/fragmentPagesTittle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Default"
+                android:visibility="gone"
+                android:padding="0dp"
+                android:textColor="@color/colorNoir"
+                android:textSize="20sp"
+                android:layout_marginTop="57dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</merge>

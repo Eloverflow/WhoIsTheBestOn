@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_challenge_target_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical" >
+
+    
+    <!-- Header aligned to top -->
+
+    <RelativeLayout
+        android:id="@+id/fragmentPagesHeader"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/colorFrame"
+        android:gravity="center" >
+
+        <TextView
+            android:id="@+id/fragmentPagesTittle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:text="@string/challengeFriendTitle"
+            android:padding="0dp"
+            android:textColor="@color/colorMainText"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/mainPageButton"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorTransparent"
+            android:src="@android:drawable/ic_input_delete"
+            android:layout_alignParentLeft="true"
+            android:adjustViewBounds="true"
+            android:maxWidth="50dp"
+            android:maxHeight="50dp"
+            android:scaleType="center"
+            android:contentDescription="@string/boutonSettingDesc"
+            android:textColor="@color/colorTransparent"
+            android:onClick="finish"   />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/fragment2PageTabs"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingTop="1dp"
+        android:paddingBottom="1dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/fragmentPagesHeader"
+        android:background="@color/colorNoir" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="@string/challengeFriendTab1"
+            android:id="@+id/challFriend_btn1"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginRight="1dp"
+            android:layout_marginLeft="1dp"
+            android:background="@drawable/tabs_selector"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="@string/challengeFriendTab2"
+            android:id="@+id/challFriend_btn2"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/challFriend_btn1"
+            android:layout_toEndOf="@+id/challFriend_btn1"
+            android:layout_marginRight="1dp"
+            android:background="@drawable/tabs_selector"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="@string/challengeFriendTab3"
+            android:id="@+id/challFriend_btn3"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/challFriend_btn2"
+            android:layout_toEndOf="@+id/challFriend_btn2"
+            android:layout_marginRight="1dp"
+            android:background="@drawable/tabs_selector"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/fragment2PageContent"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/fragment2PageTabs"
+        android:background="@color/colorBackground" >
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/swipe_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ListView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/listView"
+                android:divider="@color/colorNoir"
+                android:dividerHeight="1dp"
+                android:scrollbars="none"
+                android:cacheColorHint="#00000000"
+                android:listSelector="@drawable/list_row_selector"
+                android:choiceMode="singleChoice"/>
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

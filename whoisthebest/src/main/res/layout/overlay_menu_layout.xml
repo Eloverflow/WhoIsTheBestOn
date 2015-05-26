@@ -1,0 +1,133 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+ 	
+	<!-- Header aligned to top -->
+
+	<RelativeLayout android:id="@+id/overlay_fragment_top"
+                 android:layout_width="fill_parent"
+                 android:layout_height="fill_parent"
+    				android:orientation="vertical"
+            	android:layout_margin="0dp">
+
+        <!-- Header aligned to top -->
+
+        <LinearLayout
+            android:id="@+id/fragmentPagesHeader"
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:background="@color/colorTransparent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <ImageButton
+                android:id="@+id/mainPageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/icone_setting_pushed"
+                android:layout_alignParentRight="true"
+                android:contentDescription="@string/boutonSettingDesc"
+                android:textColor="@color/colorTransparent"
+                android:onClick="killActivity"   />
+
+        </RelativeLayout>
+
+
+
+	<RelativeLayout
+	    android:gravity="center"
+	    android:id="@+id/overlay_fragment_body"
+	    android:layout_width="match_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_alignParentLeft="true"
+	    android:layout_below="@+id/fragmentPagesHeader"
+	    android:background="@color/colorNoirTransparent"
+	    android:onClick="killActivity" >
+
+	    <RelativeLayout
+	        android:id="@+id/overlay_fragment_container"
+	        android:layout_width="200dp"
+	        android:layout_height="wrap_content"
+	        android:layout_centerHorizontal="true"
+	        android:layout_centerVertical="true"
+	        android:background="@color/colorMenu"
+	        android:paddingTop="5dp"
+	        android:paddingBottom="5dp"
+	        android:paddingLeft="5dp"
+	        android:paddingRight="5dp" >
+
+	        <Button
+	            android:id="@+id/button1"
+	            android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+	            android:layout_alignParentRight="true"
+	            android:layout_marginRight="0dp"
+	            android:background="@drawable/button_menu_overlay"
+	            android:onClick="disconnect"
+	            android:text="@string/menuButtonDisconnect"
+	            android:textColor="@color/colorMainText" />
+
+	        <Button
+	            android:id="@+id/button2"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignLeft="@+id/button1"
+	            android:layout_alignRight="@+id/button1"
+	            android:layout_below="@+id/button1"
+	            android:layout_marginTop="5dp"
+	            android:background="@drawable/button_menu_overlay"
+	            android:onClick="disconnect"
+	            android:text="@string/menuButtonDisconnect"
+	            android:textColor="@color/colorMainText" />
+
+	        <Button
+	            android:id="@+id/button3"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignLeft="@+id/button2"
+	            android:layout_alignRight="@+id/button2"
+	            android:layout_below="@+id/button2"
+	            android:layout_marginTop="5dp"
+	            android:background="@drawable/button_menu_overlay"
+	            android:onClick="disconnect"
+	            android:text="@string/menuButtonDisconnect"
+	            android:textColor="@color/colorMainText" />
+
+	        <Button
+	            android:id="@+id/button4"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignLeft="@+id/button3"
+	            android:layout_alignRight="@+id/button3"
+	            android:layout_below="@+id/button3"
+	            android:layout_marginTop="5dp"
+	            android:background="@drawable/button_menu_overlay"
+	            android:onClick="disconnect"
+	            android:text="@string/menuButtonDisconnect"
+	            android:textColor="@color/colorMainText" />
+
+	        <Button
+	            android:id="@+id/button5"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignLeft="@+id/button4"
+	            android:layout_alignRight="@+id/button4"
+	            android:layout_below="@+id/button4"
+	            android:layout_marginTop="5dp"
+	            android:background="@drawable/button_menu_overlay"
+	            android:onClick="launchTests"
+	            android:text="Launch Tests"
+	            android:textColor="@color/colorMainText" />
+	    </RelativeLayout>
+	</RelativeLayout>
+    
+	</RelativeLayout>
+	
+    
+</merge>

@@ -1,0 +1,112 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/colorTransparent">
+    
+    <!-- Header aligned to top -->
+
+    <include layout="@layout/section_half_top_layout" />
+
+    <RelativeLayout
+        android:id="@+id/header2"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.00">
+
+
+
+        <EditText
+            android:id="@+id/loginPageFormEmail"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="7dp"
+            android:layout_marginLeft="7dp"
+            android:background="@color/colorBackground"
+            android:textColor="@color/colorNoir"
+            android:textColorHint="@color/colorNoirTransparent"
+            android:ems="14"
+            android:hint="@string/loginEmail"
+            android:padding="4dp"
+            android:textSize="26sp"
+            android:inputType="textEmailAddress"  >
+        </EditText>
+        
+        <EditText
+            android:id="@+id/loginPageFormPassword"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/loginPageFormEmail"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="7dp"
+            android:layout_marginLeft="7dp"
+            android:background="@color/colorBackground"
+            android:textColor="@color/colorNoir"
+            android:textColorHint="@color/colorNoirTransparent"
+            android:ems="14"
+            android:hint="@string/loginPassword"
+            android:inputType="textPassword"
+            android:padding="4dp" 
+		    android:textSize="26sp" >
+        </EditText>
+        
+        
+        <Button
+            android:id="@+id/loginPageButtonLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/loginPageFormPassword"
+            android:layout_alignLeft="@+id/loginPageFormPassword"
+            android:layout_alignStart="@+id/loginPageFormPassword"
+            android:layout_alignEnd="@+id/loginPageFormPassword"
+            android:layout_below="@+id/loginPageFormPassword"
+            android:layout_marginTop="8dp"
+            android:paddingLeft="35dp"
+            android:paddingRight="35dp"
+            android:text="@string/loginGo"
+            android:background="@drawable/button_authentification_pages"
+            android:textColor="@color/colorMainText"
+            android:textSize="26sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorRed"
+            android:text=""
+            android:id="@+id/errorMsg"
+            android:textSize="18dp"
+            android:layout_below="@+id/loginPageButtonLogin"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/loginForgotPassword"
+            android:id="@+id/passres"
+            android:layout_below="@+id/loginPageButtonLogin"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <!--   <Button
+              android:id="@+id/loginPageButtonCancel"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignLeft="@+id/loginPageFormPassword"
+              android:layout_below="@+id/loginPageFormPassword"
+              android:layout_marginTop="5dp"
+              android:background="@drawable/button_authentification_pages"
+              android:paddingLeft="20dp"
+              android:paddingRight="20dp"
+              android:text="@string/loginCancel"
+              android:textColor="@color/colorMainText"
+              android:textSize="26sp" /> -->
+
+    </RelativeLayout>
+
+</LinearLayout>
+</merge>

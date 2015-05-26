@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/list_challenge_entry_unit_layout"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:padding="6dp">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/unitContent">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:adjustViewBounds="true"
+        android:maxWidth="32dp"
+        android:maxHeight="22dp"
+        android:scaleType="fitCenter"
+        android:layout_centerVertical="true"
+        android:src="@android:drawable/button_onoff_indicator_on"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ChallengeName"
+        android:id="@+id/challengeName"
+        android:textSize="22dp"
+        android:textColor="@color/colorNoir"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/imageView"
+        android:layout_toEndOf="@+id/imageView"
+        android:layout_marginLeft="5dp"/>
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:id="@+id/imgStatus"
+        android:layout_marginTop="2dp"
+        android:adjustViewBounds="true"
+        android:maxWidth="35dp"
+        android:maxHeight="35dp"
+        android:scaleType="fitXY"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/unitExtention"
+        android:layout_below="@+id/unitContent">
+
+    </RelativeLayout>
+
+</RelativeLayout>
+

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/list_challenge_unit_layout"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/unitContent">
+<!--    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/ic_launcher"
+        android:layout_gravity="left" />-->
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:adjustViewBounds="true"
+        android:maxWidth="32dp"
+        android:maxHeight="22dp"
+        android:scaleType="fitCenter"
+        android:layout_centerVertical="true"
+        android:src="@android:drawable/button_onoff_indicator_on"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nothing?"
+        android:id="@+id/challangeName"
+        android:textSize="22dp"
+        android:textColor="@color/colorNoir"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/imageView"
+        android:layout_toEndOf="@+id/imageView"
+        android:layout_marginLeft="5dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:src="@drawable/icone_thumbs_down"
+        android:layout_marginTop="2dp"
+        android:adjustViewBounds="true"
+        android:maxWidth="22dp"
+        android:maxHeight="22dp"
+        android:scaleType="fitCenter"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView3"
+        android:adjustViewBounds="true"
+        android:maxWidth="22dp"
+        android:maxHeight="22dp"
+        android:scaleType="fitCenter"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="2dp"
+        android:src="@drawable/icone_thumbs_up"
+        android:layout_below="@+id/imageView2"
+        android:layout_toRightOf="@+id/downvote_nbr"
+        android:layout_toEndOf="@+id/downvote_nbr" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="2dp"
+        android:text="12312321"
+        android:id="@+id/downvote_nbr"
+        android:layout_toLeftOf="@+id/imageView2"
+        android:layout_toStartOf="@+id/imageView2"
+        android:textColor="@color/colorNoir"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="30"
+        android:layout_marginRight="2dp"
+        android:id="@+id/upvote_nbr"
+        android:layout_alignBottom="@+id/imageView3"
+        android:layout_alignRight="@+id/downvote_nbr"
+        android:layout_alignEnd="@+id/downvote_nbr"
+        android:textColor="@color/colorNoir" />
+
+    </RelativeLayout>
+
+    <!--android:background="@drawable/border_top"-->
+
+    <LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:visibility="gone"
+    android:background="@color/colorNoir"
+    android:id="@+id/unitExtention"
+
+
+
+    android:layout_below="@+id/unitContent">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Challenge infos"
+            android:id="@+id/buttonInfo"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:background="@drawable/button_challenge_action"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Challenge a friend"
+            android:id="@+id/button6"
+            android:layout_marginTop="1dp"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/button"
+            android:layout_toEndOf="@+id/button"
+            android:background="@drawable/button_challenge_action"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
+

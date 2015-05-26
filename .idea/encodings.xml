@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/whoisthebest/libs/YouTubeAndroidPlayerApi.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/library" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/Fragment1.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/Fragment2.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/Fragment3.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/Fragment4.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/FragmentChallengeTarget.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/ListChallenge.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/ListChallengeEntry.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/ListChallengeTarget.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/ListFriend.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/ListLadder.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/LoadingProgressDialog.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/LogoutDialogClass.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/OverlayChallengeAction.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/OverlayMenu.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/PageChallenge.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/PageLogin.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/PagePasswordReset.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/PageRegister.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/PageWelcome.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/PagerAdapter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/ProcessLoadListChallenge.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/ProcessLoadListChallengeEntry.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/ProcessLoadListChallengeTarget.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/ProcessLoadListFriend.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/ProcessLoadListLadder.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/ProcessLogin.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/ProcessNetworkCheck.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/ProcessRegister.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/ProcessResetPass.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/WhoIsTheBest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/com/whoisthebest/WitbStart.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/library/ChallengesFunctions.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/library/DatabaseHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/library/FriendFunctions.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/library/JSONParser.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/library/NotificationsFunctions.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/java/library/UserFunctions.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/whoisthebest/src/main/res" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment3_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+
+
+    <!-- Header aligned to top -->
+
+    <LinearLayout
+        android:id="@+id/fragmentPagesHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:background="@color/colorFrame"
+        android:gravity="center">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_height="match_parent"
+            android:text="@string/fragment3Title"
+            android:textColor="@color/colorMainText"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fragment3PageTabs"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingTop="1dp"
+        android:paddingBottom="1dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/fragmentPagesHeader"
+        android:background="@color/colorNoir" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="@string/fragment3Tab1"
+            android:id="@+id/f3_button1"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginRight="1dp"
+            android:layout_marginLeft="1dp"
+            android:background="@drawable/tabs_selector"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="@string/fragment3Tab2"
+            android:id="@+id/f3_button2"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/f3_button1"
+            android:layout_toEndOf="@+id/f3_button1"
+            android:layout_marginRight="1dp"
+            android:background="@drawable/tabs_selector"/>
+
+
+    </LinearLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/fragment3PageContent"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/fragment3PageTabs"
+        android:background="@color/colorBackground" >
+
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/swipe_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ListView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/listView"
+                android:divider="@color/colorNoir"
+                android:dividerHeight="1dp"
+                android:scrollbars="none"
+                android:cacheColorHint="#00000000"
+                android:listSelector="@drawable/list_row_selector"/>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

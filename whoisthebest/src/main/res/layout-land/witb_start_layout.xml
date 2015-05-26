@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorNoir"
+    android:orientation="vertical" >
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/witb_authentification_bg_land"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+
+    <!-- Header aligned to top -->
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:padding="0dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/image_ribon_whoisthebest"
+        android:contentDescription="@string/imageRibbonDesc"
+        android:adjustViewBounds="true" />
+    <!--<include layout="@layout/section_half_top_layout"/>-->
+
+
+    </LinearLayout>
+</RelativeLayout>

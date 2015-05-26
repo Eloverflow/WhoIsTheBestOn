@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">WhoIsTheBest?</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="welcome">Bienvenue sur WhoIsTheBest? Découvre qui est la meilleur personne au monde̾</string>
+    <string name="app_name2">WhoIsTheBest?</string>
+    <string name="fragment2Title">WhoIsTheBest?</string>
+    <string name="fragment1Title">Challenges</string>
+    <string name="fragment3Title">Ladders</string>
+    <string name="fragment4Title">Friends</string>
+    <string name="loginButton">Login..</string>
+    <string name="registerButton">Register..</string>
+    <string name="loginGo">Login</string>
+    <string name="loginCancel">Cancel</string>
+    <string name="registerGo">Register</string>
+    <string name="registerCancel">Cancel</string>
+    <string name="loginEmail">Email</string>
+    <string name="loginUser">User</string>
+    <string name="loginPassword">Password</string>
+    <string name="logOut">Log out</string>
+    <string name="bouton1">||||||</string>
+    <string name="boutonChallenge">Challenge a friend</string>
+    <string name="boutonYourChallenge">View your challenges</string>
+    <string name="boutonSettingDesc">Settings</string>
+    <string name="menuButtonDisconnect">Disconnect</string>
+    <string name="exitConfirmation">Do you realy want to exit ?</string>
+    <string name="exitYes">Yes</string>
+    <string name="exitNo">No</string>
+    <string name="imageRibbonDesc">LoginImageRibbon</string>
+    <string name="title_activity_login">Login</string>
+    <string name="loginForgotPassword">Forgot password ?</string>
+    <string name="title_activity_password_reset">PasswordReset</string>
+    <string name="title_activity_welcome">Welcome</string>
+    <string name="title_activity_register">Register</string>
+    <string name="title_activity_registered">Registered</string>
+    <string name="resetPassGo">Reset</string>
+    <string name="tab_words">Wordssss</string>
+    <string name="tab_numbers">Numberssss</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fragment2Tab1">Top</string>
+    <string name="fragment2Tab2">Popular</string>
+    <string name="fragment2Tab3">Recent</string>
+    <string name="fragment1Tab1">Received</string>
+    <string name="fragment1Tab2">Given</string>
+    <string name="fragment3Tab1">Friends</string>
+    <string name="fragment3Tab2">World</string>
+    <string name="challengeFriendTitle">Target ?</string>
+    <string name="challengeFriendTab1">Friends</string>
+    <string name="challengeFriendTab2">Network</string>
+    <string name="challengeFriendTab3">World</string>
+
+</resources>

@@ -1,0 +1,54 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+
+    <!-- Header aligned to top -->
+
+    <include layout="@layout/section_half_top_layout"/>
+
+
+
+    <RelativeLayout
+        android:id="@+id/header2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    	android:layout_weight="1.00">
+
+        <Button
+            android:id="@+id/authPageButtonLogin"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/button_authentification_pages"
+            android:layout_marginRight="7dp"
+            android:layout_marginLeft="7dp"
+            android:paddingLeft="35dp"
+            android:paddingRight="35dp"
+            android:text="@string/loginButton"
+            android:textColor="@color/colorMainText"
+            android:textSize="26sp"/>
+
+        <Button
+            android:id="@+id/authPageButtonRegister"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/authPageButtonLogin"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/button_authentification_pages"
+            android:layout_marginRight="7dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="8dp"
+            android:paddingLeft="35dp"
+            android:paddingRight="35dp"
+            android:text="@string/registerButton"
+            android:textColor="@color/colorMainText"
+            android:textSize="26sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>
+</merge>

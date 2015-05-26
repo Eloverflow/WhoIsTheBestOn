@@ -1,0 +1,74 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="android:Theme.Light.NoTitleBar" >
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:textViewStyle">@style/textregular</item>
+        <item name="android:imageButtonStyle">@style/Theme.Transparent</item>
+
+        <!--Animation applied to all activity-->
+        <item name="android:windowAnimationStyle">@style/MyActivityAnimations</item>
+    </style>
+    
+    <style name="textbold" parent="@android:style/TextAppearance">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:textStyle">bold</item>
+	</style>
+	<style name="textregular" parent="@android:style/TextAppearance">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:textStyle">normal</item>
+	</style>
+	
+	<style name="Theme.Transparent" parent="android:Theme">
+      	<item name="android:gravity">right</item>
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_weight">1.3</item>
+	  	<item name="android:windowIsTranslucent">true</item>
+	  	<item name="android:windowBackground">@android:color/transparent</item>
+	  	<item name="android:windowContentOverlay">@null</item>
+	  	<item name="android:windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@style/MyActivityAnimations</item>
+	  	<item name="android:backgroundDimEnabled">false</item>
+	</style>
+	
+	<style name="Animation.MyDialog" parent="android:Animation.Dialog">
+    <item name="android:windowEnterAnimation">@anim/fadein</item>
+    <item name="android:windowExitAnimation">@anim/fadeout</item>
+	</style>
+	
+	<style name="Theme.MyDialog" parent="android:Theme.Dialog">
+	    <item name="android:windowAnimationStyle">@style/Animation.MyDialog</item>
+	</style>
+
+    <style name="MyActivityAnimations" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/fadein</item>
+        <item name="android:activityOpenExitAnimation">@anim/fadeout</item>
+        <item name="android:activityCloseEnterAnimation">@anim/fadein</item>
+        <item name="android:activityCloseExitAnimation">@anim/fadeout</item>
+        <item name="android:taskOpenEnterAnimation">@anim/fadein</item>
+        <item name="android:taskOpenExitAnimation">@anim/fadeout</item>
+        <item name="android:taskCloseEnterAnimation">@anim/fadein</item>
+        <item name="android:taskCloseExitAnimation">@anim/fadeout</item>
+        <item name="android:taskToFrontEnterAnimation">@anim/fadein</item>
+        <item name="android:taskToFrontExitAnimation">@anim/fadeout</item>
+        <item name="android:taskToBackEnterAnimation">@anim/fadein</item>
+        <item name="android:taskToBackExitAnimation">@anim/fadeout</item>
+        <item name="android:wallpaperOpenEnterAnimation">@anim/fadein</item>
+        <item name="android:wallpaperOpenExitAnimation">@anim/fadeout</item>
+        <item name="android:wallpaperCloseEnterAnimation">@anim/fadein</item>
+        <item name="android:wallpaperCloseExitAnimation">@anim/fadeout</item>
+        <item name="android:wallpaperIntraOpenEnterAnimation">@anim/fadein</item>
+        <item name="android:wallpaperIntraOpenExitAnimation">@anim/fadeout</item>
+        <item name="android:wallpaperIntraCloseEnterAnimation">@anim/fadein</item>
+        <item name="android:wallpaperIntraCloseExitAnimation">@anim/fadeout</item>
+    </style>
+
+</resources>
