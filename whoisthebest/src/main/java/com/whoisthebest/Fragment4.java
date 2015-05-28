@@ -16,10 +16,15 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import library.FriendFunctions;
 
 public class Fragment4 extends Fragment implements View.OnClickListener,SwipeRefreshLayout.OnRefreshListener {
+
 
     //Temp :
     String[] friendList = new String[]{
@@ -144,13 +149,32 @@ public class Fragment4 extends Fragment implements View.OnClickListener,SwipeRef
         else if(button.getId() == R.id.addFriendButton){
 
 
-            new AsyncTask<Void, Void, Void>() {
+            new AsyncTask<Void, Void, Integer>() {
 
                 @Override
-                protected Void doInBackground( Void... voids ) {
+                protected Integer doInBackground(Void... voids) {
                     FriendFunctions friendFunction = new FriendFunctions();
-                    friendFunction.addFriend(WhoIsTheBest.user.get("uid"), friendName.getText().toString());
-                    return null;
+                    JSONObject retour = friendFunction.addFriend(WhoIsTheBest.user.get("uid"), friendName.getText().toString());
+                    Integer flag = 0;
+
+                    //Have to correct the return from API no success = 1 on success
+                    try {
+                        if(retour.getInt("success") == 0){
+                            flag = 1;
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    return flag;
+                }
+
+                @Override
+                protected void onPostExecute(Integer integer) {
+                    if(integer == 1)
+                    {
+                        Toast.makeText(mLinearLayout.getContext(), "This user does not exist", Toast.LENGTH_LONG).show();
+                    }
+
                 }
             }.execute();
 

@@ -93,15 +93,15 @@
         <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
+            android:layout_weight="6"
             android:hint="Friend Username"
             android:id="@+id/friendName"
             android:layout_marginRight="1dp"
-            android:layout_marginTop="1dp"/>
+            android:layout_marginTop="2dp"/>
 
         <ImageButton
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:layout_weight="1"
             android:src="@android:drawable/ic_input_add"
             android:id="@+id/addFriendButton"
