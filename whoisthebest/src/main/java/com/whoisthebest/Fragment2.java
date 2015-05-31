@@ -10,6 +10,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
+//Fragment Page WhoIsTheBest?(Main)
+//Where you can see the list of the different challenge that you can do or send to a friend
 public class Fragment2 extends Fragment implements OnClickListener,SwipeRefreshLayout.OnRefreshListener {
 
     RelativeLayout mLinearLayout;

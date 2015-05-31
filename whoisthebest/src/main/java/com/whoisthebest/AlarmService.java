@@ -2,96 +2,51 @@ package com.whoisthebest;
 
 import android.app.IntentService;
 import android.app.NotificationManager;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-
-import org.apache.http.client.HttpClient;
-import org.apache.http.impl.client.DefaultHttpClient;
-
 import java.util.ArrayList;
+
+import library.NotificationsFunctions;
 
 /*
  * Service appele lorsque l'alarme est declenchee.
- * Note: Ce type de service simple permet d'executer une tache asynchrone
- * dans la methode "onHandleIntent"; ce qui est tres pratique pour executer
- * une tache lourde, comme le chargement de donnees sur Internet, sans avoir
- * besoin de se soucier de la gestion d'un "Thread".  Le service sera automatiquement
- * arrete apres l'execution de la methode "onHandleIntent".
+ * Permet de faire les tâche asynchrone en background.
  */
 public class AlarmService extends IntentService {
-    private HttpClient m_ClientHttp = new DefaultHttpClient();
-    private final String TAG = this.getClass().getSimpleName();
     Exception m_Exp;
-    SharedPreferences sharedpreferences;
-
-    // Identifiant unique pour la notification.
-    private static final int ID_ALARM = 12345;
 
     // Gestionnaire de notifications.
     private NotificationManager notifMgr;
-
-
 
     public AlarmService() {
         super("AlarmService");
     }
 
     @Override
+    //On effectu la tâche asynchrone ici !
     protected void onHandleIntent(Intent intent) {
-        // On peut effectuer des taches lourdes ici.
 
-        // Incrementation du compteur du nombre de declenchements de l'alarme.
-        //SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getBaseContext());
-        //SharedPreferences.Editor editor = prefs.edit();
-
+        //On associe le NotificationManager à une variable pour pouvoir intéragir avec plus tard.
         this.notifMgr = (NotificationManager) this.getSystemService(NOTIFICATION_SERVICE);
 
+        //On va chercher les notifications avec la methode GetNotifs
         ArrayList<String> arrayDeNotif = GetNotifs();
 
+        //On vérifie si des notifications sont retournées
         if(arrayDeNotif != null && arrayDeNotif.size() > 0)
         {
+                //Si oui on envoie les notifs au NotificationManger...
                 gererEnvoyerNotif(arrayDeNotif);
         }
 
-
-
-
-        //Ici on cre nos notifs (une pour chaque notif dans l'arrayDeNotif)
-        //Nos notif doive lancer un intent (lesDemandeDami) (Avec comme pref le nom de l'ami)
-        //(lesDemandeDami vont aller chercher dans les pref l'array des demande d'ami
-
-
-
-
-
-        //editor.putInt("arrayDeNotif", "leContenuDesNotifRetourne");
-        //editor.commit();
     }
 
     protected ArrayList<String> GetNotifs(Void... unused) {
         ArrayList<String> listeNotifs = new ArrayList<String>();
 
         try {
-            sharedpreferences = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-            if (sharedpreferences.contains("usrKey"))
-            {
-                /*URI uri = new URI("http", Varr.getService(), "/notifications" + "/" + sharedpreferences.getString("usrKey", ""), null, null);
-                HttpGet requeteGet = new HttpGet(uri);
+            NotificationsFunctions notifFunction = new NotificationsFunctions();
+            //notifFunction.
 
-                String body = m_ClientHttp.execute(requeteGet, new BasicResponseHandler());
-                JSONArray jsonArray = new JSONArray(body);
-                //listeNotifs = JsonParser.deserialiserJsonListeSites(body);
-
-                if(jsonArray != null){
-                    for (int i = 0; i < jsonArray.length(); i++){
-                        JSONObject json_data = jsonArray.getJSONObject(i);
-
-                        listeNotifs.add(json_data.get("MemNomDemandeur").toString());
-                    }
-                }*/
-
-            }
         } catch (Exception e) {
             m_Exp = e;
         }

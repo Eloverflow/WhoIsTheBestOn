@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
+//Fragment Page Challenges
+//Where you can see the challenge you did or you received
 public class Fragment1 extends Fragment implements View.OnClickListener,SwipeRefreshLayout.OnRefreshListener {
 
     RelativeLayout mLinearLayout;

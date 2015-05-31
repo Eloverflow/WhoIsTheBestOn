@@ -33,6 +33,18 @@
         android:layout_alignParentRight="true"
         android:src="@drawable/icone_check"/>
 
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:id="@+id/addCheck"
+        android:adjustViewBounds="true"
+        android:maxWidth="35dp"
+        android:maxHeight="35dp"
+        android:scaleType="fitXY"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/imgCheck"
+        android:layout_toStartOf="@+id/imgCheck" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

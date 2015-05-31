@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
+//Fragment Page Ladders
+//Where you can see rank of your friend or the best people in the world
 public class Fragment3 extends Fragment implements View.OnClickListener,SwipeRefreshLayout.OnRefreshListener {
 
     RelativeLayout mLinearLayout;

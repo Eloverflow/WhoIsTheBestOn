@@ -14,22 +14,21 @@ public class NotificationsFunctions {
 
     private JSONParser jsonParser;
 
-    private static String friendsURL = "http://104.131.185.129/witb/android/notifications.php";
+    private static String notifsURL = "http://104.131.185.129/witb/android/notifications.php";
 
-    private static String friendsNotif_tag = "friendsNotif";
+    private static String friendsNotifs_tag = "friendsNotifs";
 
-    // constructor
     public NotificationsFunctions() {
         jsonParser = new JSONParser();
     }
 
-    public JSONObject getFriendList(String userId) {
+    public JSONObject getNotificationList(String userId) {
 
         // Building Parameters
         List<NameValuePair> params = new ArrayList<NameValuePair>();
-        params.add(new BasicNameValuePair("tag", friendsNotif_tag));
+        params.add(new BasicNameValuePair("tag", friendsNotifs_tag));
         params.add(new BasicNameValuePair("userId", userId));
-        JSONObject json = jsonParser.getJSONFromUrl(friendsURL, params);
+        JSONObject json = jsonParser.getJSONFromUrl(notifsURL, params);
         return json;
     }
 }

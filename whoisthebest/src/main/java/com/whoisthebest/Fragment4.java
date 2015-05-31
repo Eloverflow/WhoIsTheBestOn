@@ -1,6 +1,5 @@
 package com.whoisthebest;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -23,71 +22,16 @@ import org.json.JSONObject;
 
 import library.FriendFunctions;
 
+//Fragment Page Friends
+//Where you can see the list of your friend or add a friend
 public class Fragment4 extends Fragment implements View.OnClickListener,SwipeRefreshLayout.OnRefreshListener {
-
-
-    //Temp :
-    String[] friendList = new String[]{
-            "William Grognon",
-            "William Le Dieu Grec",
-            "Lau la Pimp",
-            "Chuck Norris",
-            "Jean FM 93",
-            "Kiki",
-            "Guidounne",
-            "Luigi Bros.",
-            "Mario Bros.",
-            "Donkey Kong",
-            "Sangoku",
-            "Monkey D. Luffy",
-            "William Grognon",
-            "William Le Dieu Grec",
-            "Lau la Pimp",
-            "Chuck Norris",
-            "Jean FM 93",
-            "Kiki",
-            "Guidounne",
-            "Luigi Bros.",
-            "Mario Bros.",
-            "Donkey Kong",
-            "Sangoku",
-            "Monkey D. Luffy"};
-
-    Integer[] status = {
-            1,
-            2,
-            4,
-            3,
-            1,
-            3,
-            4,
-            1,
-            3,
-            2,
-            4,
-            1,
-            1,
-            2,
-            4,
-            3,
-            1,
-            3,
-            4,
-            1,
-            3,
-            2,
-            4,
-            1};
-    //EndTemp
 
     RelativeLayout mLinearLayout;
     LinearLayout friendExtention;
     EditText friendName;
     SwipeRefreshLayout swipeLayout;
     LoadingProgressDialog cProgressDialog;
-    ListView friends;
     ListView list;
-    Intent myIntent;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,

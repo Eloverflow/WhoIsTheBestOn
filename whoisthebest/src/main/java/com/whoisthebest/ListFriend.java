@@ -39,6 +39,7 @@ public class ListFriend extends ArrayAdapter<String>{
         TextView txtTitle = (TextView) rowView.findViewById(R.id.friendName);
 
         ImageView imageCheck = (ImageView) rowView.findViewById(R.id.imgCheck);
+        ImageView addCheck = (ImageView) rowView.findViewById(R.id.addCheck);
         ImageView imageFav = (ImageView) rowView.findViewById(R.id.imgFavorites);
 
         //Ce qu'on met pour remplacer
@@ -46,6 +47,12 @@ public class ListFriend extends ArrayAdapter<String>{
 
         switch(status.get(position)){
 
+            // Pending in
+            case 0:{
+                imageCheck.setImageResource(android.R.drawable.ic_delete);
+                addCheck.setImageResource(android.R.drawable.ic_input_add);
+                break;
+            }
             // Favoris
             case 1:{
                 imageFav.setVisibility(View.VISIBLE);
@@ -66,9 +73,16 @@ public class ListFriend extends ArrayAdapter<String>{
 
             // Supprimé
             case 4:{
-                imageCheck.setImageResource(android.R.drawable.ic_delete);
+                imageCheck.setImageResource(android.R.drawable.ic_menu_delete);
                 break;
             }
+
+            // Pending out
+            case 5:{
+                imageCheck.setImageResource(android.R.drawable.sym_action_email);
+                break;
+            }
+
         }
 
         Animation animation = AnimationUtils.loadAnimation(context, R.anim.slidein_righttoleft);

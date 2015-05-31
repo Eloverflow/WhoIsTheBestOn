@@ -7,7 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 
 /*
- * BroadcastReceiver pour le demarrage (boot) de l'appareil.
+ * BroadcastReceiver pour le boot de l'appareil. (Lance le AlarmReceiver, qui lui a son tour lance le service)
  */
 public class BootReceiver extends BroadcastReceiver {
 
