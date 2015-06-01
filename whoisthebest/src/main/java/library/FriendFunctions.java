@@ -21,6 +21,7 @@ public class FriendFunctions {
     private static String friendsList_tag = "friendsList";
     private static String target_tag = "target";
     private static String addFriends_tag = "addFriend";
+    private static String acceptFriend_tag = "acceptFriend";
 
     // constructor
     public FriendFunctions() {
@@ -42,6 +43,18 @@ public class FriendFunctions {
         // Building Parameters
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("tag", addFriends_tag));
+        params.add(new BasicNameValuePair("userId", userId));
+        params.add(new BasicNameValuePair("friendUsername", friendUsername));
+        JSONObject json = jsonParser.getJSONFromUrl(friendsURL, params);
+        Log.d("test3", json.toString());
+        return json;
+    }
+
+    public JSONObject acceptFriend(String userId, String friendUsername) {
+
+        // Building Parameters
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("tag", acceptFriend_tag));
         params.add(new BasicNameValuePair("userId", userId));
         params.add(new BasicNameValuePair("friendUsername", friendUsername));
         JSONObject json = jsonParser.getJSONFromUrl(friendsURL, params);

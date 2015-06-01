@@ -43,7 +43,7 @@
         android:scaleType="fitXY"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/imgCheck"
-        android:layout_toStartOf="@+id/imgCheck" />
+        android:layout_toStartOf="@+id/imgCheck"/>
 
     <TextView
         android:layout_width="wrap_content"

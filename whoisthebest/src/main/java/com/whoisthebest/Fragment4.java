@@ -1,5 +1,6 @@
 package com.whoisthebest;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -32,7 +34,7 @@ public class Fragment4 extends Fragment implements View.OnClickListener,SwipeRef
     SwipeRefreshLayout swipeLayout;
     LoadingProgressDialog cProgressDialog;
     ListView list;
-
+    InputMethodManager imm;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -56,6 +58,12 @@ public class Fragment4 extends Fragment implements View.OnClickListener,SwipeRef
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
 
+        cProgressDialog = new LoadingProgressDialog(getActivity());
+        cProgressDialog.setCancelable(true);
+        cProgressDialog.show();
+
+        imm = (InputMethodManager) this.getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+
         onRefresh();
 
 
@@ -69,10 +77,16 @@ public class Fragment4 extends Fragment implements View.OnClickListener,SwipeRef
     @Override
     public void onRefresh() {
         new ProcessLoadListFriend(this.getActivity(), mLinearLayout).execute();
+        stopLoading();
+
+    }
+
+    public void stopLoading(){
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 swipeLayout.setRefreshing(false);
+                cProgressDialog.dismiss();
             }
         }, 600);
     }
@@ -84,13 +98,21 @@ public class Fragment4 extends Fragment implements View.OnClickListener,SwipeRef
             if (friendExtention.getVisibility() == View.VISIBLE)
             {
                 collapse(friendExtention);
+                imm.hideSoftInputFromWindow(friendName.getWindowToken(), 0);
             }
             else
             {
                 expand(friendExtention);
+                friendName.setFocusableInTouchMode(true);
+                friendName.requestFocus();
+                imm.showSoftInput(friendName, InputMethodManager.SHOW_IMPLICIT);
             }
         }
         else if(button.getId() == R.id.addFriendButton){
+
+            cProgressDialog = new LoadingProgressDialog(getActivity());
+            cProgressDialog.setCancelable(true);
+            cProgressDialog.show();
 
 
             new AsyncTask<Void, Void, Integer>() {
@@ -116,7 +138,14 @@ public class Fragment4 extends Fragment implements View.OnClickListener,SwipeRef
                 protected void onPostExecute(Integer integer) {
                     if(integer == 1)
                     {
-                        Toast.makeText(mLinearLayout.getContext(), "This user does not exist", Toast.LENGTH_LONG).show();
+                        Toast.makeText(mLinearLayout.getContext(), "This user does not exist or is already your friend", Toast.LENGTH_LONG).show();
+                        stopLoading();
+                    }
+                    else{
+                        Toast.makeText(mLinearLayout.getContext(), "Friend request sent", Toast.LENGTH_LONG).show();
+                        onRefresh();
+                        collapse(friendExtention);
+                        friendName.setText("");
                     }
 
                 }

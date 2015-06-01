@@ -91,13 +91,14 @@
         android:layout_below="@+id/fragmentPagesHeader">
 
         <EditText
+            android:id="@+id/friendName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="6"
             android:hint="Friend Username"
-            android:id="@+id/friendName"
             android:layout_marginRight="1dp"
             android:layout_marginTop="2dp"/>
+
 
         <ImageButton
             android:layout_width="0dp"
