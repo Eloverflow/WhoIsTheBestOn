@@ -16,13 +16,13 @@ public class NotificationsFunctions {
 
     private static String notifsURL = "http://104.131.185.129/witb/android/notifications.php";
 
-    private static String friendsNotifs_tag = "friendsNotifs";
+    private static String friendsNotifs_tag = "friendNotifs";
 
     public NotificationsFunctions() {
         jsonParser = new JSONParser();
     }
 
-    public JSONObject getNotificationList(String userId) {
+    public JSONObject getNotifsFriend(String userId) {
 
         // Building Parameters
         List<NameValuePair> params = new ArrayList<NameValuePair>();

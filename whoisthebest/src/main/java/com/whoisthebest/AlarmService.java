@@ -1,8 +1,14 @@
 package com.whoisthebest;
 
 import android.app.IntentService;
+import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 import library.NotificationsFunctions;
@@ -45,7 +51,15 @@ public class AlarmService extends IntentService {
 
         try {
             NotificationsFunctions notifFunction = new NotificationsFunctions();
-            //notifFunction.
+            JSONObject retour = notifFunction.getNotifsFriend(WhoIsTheBest.user.get("uid"));
+
+            JSONArray jArray = retour.getJSONArray("list");
+
+            for(int i=0; i<jArray.length(); i++){
+                JSONObject json_data = jArray.getJSONObject(i);
+
+                listeNotifs.add(json_data.getString("name"));
+            }
 
         } catch (Exception e) {
             m_Exp = e;
@@ -74,24 +88,24 @@ public class AlarmService extends IntentService {
             texteNotifNom = "Vous avez recu (" + nom.size() + ") demandes d'amis";
         }
 
-/*
+
         // Creation d'un nouvelle notification.
-        Notification notif = new Notification(R.drawable.geopeche, statusBarNotif, System.currentTimeMillis());
+        Notification notif = new Notification(R.drawable.ic_launcher, statusBarNotif, System.currentTimeMillis());
         // Pour faire disparaitre la notification lorsque l'utilisateur la clique.
         notif.flags |= Notification.FLAG_AUTO_CANCEL;
 
         // Creation d'une intention de retour lorsqu'on clique sur la notification.
-        Intent i = new Intent(this, friendsActivity.class);
+        Intent i = new Intent(this, WhoIsTheBest.class);
         // Ajout d'information dans l'intention. -- Nom du demandeur dans extra
         i.putExtra("message", texteNotifNom);
-        i.putExtra("selectedTab", "demandes");
+        i.putExtra("selectedTab", "friends");
         // Creation d'une nouvelle intention en suspens.
         PendingIntent pi = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Configuration de la notification.
         notif.setLatestEventInfo(this, titreNotif, texteNotifNom, pi);
         // Envoie de la notification.
-        this.notifMgr.notify(ID_ALARM, notif);*/
+        this.notifMgr.notify(WhoIsTheBest.ID_ALARM, notif);
 
     }
 }
