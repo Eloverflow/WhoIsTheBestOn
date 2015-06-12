@@ -100,7 +100,6 @@ public class ListFriend extends ArrayAdapter<String>{
 
                                     //Toast.makeText(mLinearLayout.getContext(), "Friend request sent", Toast.LENGTH_LONG).show();
                                     //onRefresh();
-                                    //collapse(friendExtention);
                                     //friendName.setText("");
                                 }
 

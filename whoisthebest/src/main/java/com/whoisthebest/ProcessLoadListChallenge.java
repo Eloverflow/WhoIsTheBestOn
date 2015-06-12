@@ -274,28 +274,4 @@ public class ProcessLoadListChallenge extends AsyncTask<String, String, JSONObje
         a.setDuration((int)(initialHeight / v.getContext().getResources().getDisplayMetrics().density)+200);
         v.startAnimation(a);
     }
-
-    private void selectedListUnit(View view) {
-        view.findViewById(R.id.unitExtention).setVisibility(View.VISIBLE);
-        view.findViewById(R.id.unitExtention).setId(R.id.button1);
-
-        if(rootView.findViewById(R.id.button1) !=null){
-            rootView.findViewById(R.id.button1).setVisibility(View.GONE);
-            rootView.findViewById(R.id.button1).setId(R.id.unitExtention);
-        }
-    }
-
-    /*public void challengePage(int position){
-        //On click on instancie une nouvelle activity avec notre Challenge Selectionné
-        myIntent = new Intent(rootView.getContext(), OverlayChallengeAction.class);
-
-        //On ajouter les information à transmettre en Extra
-        myIntent.putExtra("challenge", challengesStringArray.get(+ position));
-
-        //On start l'activité
-        ((android.app.Activity)context).startActivityForResult(myIntent, 0);
-
-        //Petite effet de transition
-        ((Activity) rootView.getContext()).overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-    }*/
 }

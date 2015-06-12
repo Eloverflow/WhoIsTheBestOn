@@ -12,6 +12,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -27,7 +28,6 @@ public class WhoIsTheBest extends FragmentActivity {
 	ViewPager pager = null;
     static FragmentManager fragManager;
 	private int defaultPage = 1;
-	private String currentPage = "";
 	private Boolean onRestaure = false;
     static HashMap<String,String> user = new HashMap<String, String>();
     Fragment fragment1, fragment2, fragment3, fragment4;
@@ -65,17 +65,15 @@ public class WhoIsTheBest extends FragmentActivity {
 
 
         //Si on vient de d�marer l'applications
-		if(savedInstanceState == null){
 
-		    whoIsTheBestFragments();
-        }
-		//Sinon on resume ou on �tait
-		else {
-			currentPage = savedInstanceState.getString("currentPage");
-			onRestaure = true;
-			goBackToGoodPage();
-		}
+        whoIsTheBestFragments();
 	}
+
+    //Pour lancer notre viewPager (pages principales)
+    public void whoIsTheBestFragments(){
+        setContentView(R.layout.viewpager_layout);
+        initialisePaging();
+    }
 
 	private void initialisePaging() {
 
@@ -97,67 +95,11 @@ public class WhoIsTheBest extends FragmentActivity {
         pager = (ViewPager) findViewById(R.id.viewpager);
         pager.setOffscreenPageLimit(3);
 		pager.setAdapter(mPagerAdapter);
-		
+
+        checkPageToGo();
 		//Page 2 par d�faut
-		pager.setCurrentItem(defaultPage);
+		//pager.setCurrentItem(defaultPage);
 
-
-        //ViewPager change page event
-
-        pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int i, float v, int i2) {
-            }
-
-            @Override
-            public void onPageSelected(int i) {
-                //Log.d("test", "testa");
-                //Arrive juste une fois
-                //((Fragment1)fragment1).tab1();
-                //((Fragment2)fragment2).tab1();
-                //((Fragment3)fragment3).tab1();
-                //((Fragment4)fragment4).getFragmentManager().executePendingTransactions();
-
-
-                //On pourrait peut-être vérifier quelle page on est et à quel point il faut modifier quelque chose pour enlever le petit lag graphique
-                //Aussi on pourrait comparer le temps en
-                /*new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            Thread.sleep(800);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                ((Fragment3)fragment3).tab1();
-                            }
-                        });
-                    }
-                }).start();*/
-/*
-                FragmentManager fm2 = getSupportFragmentManager();
-                FragmentTransaction transaction2 = fm2.beginTransaction();
-                transaction2.replace(R.id.fragment3Nothing, new Fragment());
-                //transaction2.setCustomAnimations(R.anim.fadeout, R.anim.fadeout);
-                transaction2.commit();*/
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int i) {
-            }
-        });
-
-
-	}
-
-    //Pour lancer notre viewPager (pages principales)
-	public void whoIsTheBestFragments(){
-		currentPage = "viewPager_layout";
-		setContentView(R.layout.viewpager_layout);
-		initialisePaging();
 	}
 
 	//On affiche notre menu / Va se kill� avec BackButton ou SettingButton
@@ -168,34 +110,43 @@ public class WhoIsTheBest extends FragmentActivity {
 
 	}
 
-
 	@Override
 	public void onBackPressed() {
 		goBackToGoodPage();
 	}
 
+    public void checkPageToGo(){
+        Bundle extras = getIntent().getExtras();
+
+        if (extras != null){
+            String page = extras.getString("page", "default");
+            if(page.equals("friends")) {
+                pager.setCurrentItem(3);
+                this.getIntent().removeExtra("page");
+            }
+            else{
+                goBackToGoodPage();
+            }
+        }
+        else{
+            goBackToGoodPage();
+        }
+    }
+
 	//Si onRestaure est false c'est que c'est un pr�c�dent, sinon on veut retourner � la page enregistr�
 	public void goBackToGoodPage(){
 
-            if(onRestaure)
-            whoIsTheBestFragments();
-            else {
-                if(pager.getCurrentItem() == defaultPage){
-                    moveTaskToBack(true);
-                }
-                else
-                    pager.setCurrentItem(1);
-            }
-
-		//Si on �t� onRestaure = true on vient juste de restaurer notre page donc onRestaure = false
-		if(onRestaure)
-		onRestaure = false;
+        if(pager.getCurrentItem() == defaultPage){
+            moveTaskToBack(true);
+        }
+        else{
+            pager.setCurrentItem(defaultPage);
+        }
 	}
 
-
-	@Override
+    @Override
 	public void onSaveInstanceState(Bundle savedInstanceState) {
-	     savedInstanceState.putString("currentPage", currentPage);
+	     //savedInstanceState.putString("currentPage", currentPage);
 	     super.onSaveInstanceState(savedInstanceState);
 	}
 

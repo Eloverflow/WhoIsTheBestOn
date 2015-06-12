@@ -94,11 +94,14 @@ public class AlarmService extends IntentService {
         // Pour faire disparaitre la notification lorsque l'utilisateur la clique.
         notif.flags |= Notification.FLAG_AUTO_CANCEL;
 
+
+
+
         // Creation d'une intention de retour lorsqu'on clique sur la notification.
         Intent i = new Intent(this, WhoIsTheBest.class);
         // Ajout d'information dans l'intention. -- Nom du demandeur dans extra
         i.putExtra("message", texteNotifNom);
-        i.putExtra("selectedTab", "friends");
+        i.putExtra("page", "friends");
         // Creation d'une nouvelle intention en suspens.
         PendingIntent pi = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
 

@@ -8,6 +8,9 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.Transformation;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -32,6 +35,7 @@ import java.util.ArrayList;
     ListView list;
     ListFriend adapter;
     Intent myIntent;
+    View lastView;
     private ArrayList<Integer> statusArray = new ArrayList<>();
     private ArrayList<String> friendStringArray = new ArrayList<>();
 
@@ -99,29 +103,169 @@ import java.util.ArrayList;
 
             list.setAdapter(adapter);
 
+        //Pour pouvoir écouter les action dans la ListView
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(final AdapterView<?> parent, final View view,
+                                    final int position, long id) {
 
-            //Log.d("test", "test");
 
-            /*//Pour pouvoir écouter les action dans la ListView
-            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view,
-                                        int position, long id) {
+                //On vérifie si on ajouté un onClickListener au dernier item pressé
+                //et on lui enlève la posibilité de déclancher le onClick
+                if (lastView != null) {
+                    if (view.hasOnClickListeners())
 
-                    //On click on instancie une nouvelle activity avec notre Challenge Selectionné
-                    myIntent = new Intent(rootView.getContext(), OverlayChallengeAction.class);
-
-                    //On ajouter les information à transmettre en Extra
-                    myIntent.putExtra("challenge", challengeString[+ position]);
-
-                    //On start l'activité
-                    ((Activity)context).startActivityForResult(myIntent, 0);
-
-                    //Petite effet de transition
-                    ((Activity) rootView.getContext()).overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+                        Log.d("test3", "atatatat");
+                    lastView.setClickable(false);
+                    lastView = null;
                 }
-            });*/
+
+                //Si un item est pressé on lui applique un onClickListener pour le collapse quand
+                //on le presse de nouveau et lui enlève la posibilité de déclancher le onClick
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (v.isClickable()) {
+                            if (v.findViewById(R.id.button1) != null) {
+                                collapse(v.findViewById(R.id.button1));
+                                v.findViewById(R.id.button1).setId(R.id.unitExtention);
+
+                                //On enregistre la dernière view
+                                lastView = v;
+                            }
+
+                            v.setClickable(false);
+                        }
+                    }
+                });
+
+                //On enregistre la dernière view
+                lastView = view;
+
+                if (parent.findViewById(R.id.button1) != null) {
+
+                    collapse(parent.findViewById(R.id.button1));
+
+                    //parent.findViewById(R.id.button1).setVisibility(View.GONE);
+                    parent.findViewById(R.id.button1).setId(R.id.unitExtention);
+                }
+
+                expand(view.findViewById(R.id.unitExtention));
+
+                //view.findViewById(R.id.unitExtention).startAnimation(anim);
+                //view.findViewById(R.id.unitExtention).setVisibility(View.VISIBLE);
+                view.findViewById(R.id.unitExtention).setId(R.id.button1);
+                view.findViewById(R.id.buttonInfo).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //On click on instancie une nouvelle activity avec notre Challenge Selectionné
+                        Intent myIntent = new Intent(v.getContext(), PageChallenge.class);
+
+                        //On ajouter les information à transmettre en Extra
+                        //myIntent.putExtra("challenge", challengesStringArray.get(position));
+
+                        //On start l'activité
+                        ((Activity) context).startActivityForResult(myIntent, 0);
+
+                        //Petite effet de transition
+                        ((Activity) v.getContext()).overridePendingTransition(R.anim.bottom_up, 0);
+                        //this.overridePendingTransition(R.anim.fadein, R.anim.fadeout);
 
 
+                    }
+                });
+
+                view.findViewById(R.id.buttonBlock).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //On click on instancie une nouvelle activity avec notre Challenge Selectionné
+                        Intent myIntent = new Intent(v.getContext(), FragmentChallengeTarget.class);
+
+                        //On start l'activité
+                        ((Activity) context).startActivityForResult(myIntent, 0);
+
+                        //Petite effet de transition
+                        ((Activity) v.getContext()).overridePendingTransition(R.anim.bottom_up, 0);
+                        //this.overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+
+
+                    }
+                });
+
+
+                view.findViewById(R.id.buttonDelete).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //On click on instancie une nouvelle activity avec notre Challenge Selectionné
+                        Intent myIntent = new Intent(v.getContext(), FragmentChallengeTarget.class);
+
+                        //On start l'activité
+                        ((Activity) context).startActivityForResult(myIntent, 0);
+
+                        //Petite effet de transition
+                        ((Activity) v.getContext()).overridePendingTransition(R.anim.bottom_up, 0);
+                        //this.overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+
+
+                    }
+                });
+
+            }
+        });
+
+
+    }
+
+    public static void expand(final View v) {
+        v.measure(AbsListView.LayoutParams.MATCH_PARENT, AbsListView.LayoutParams.WRAP_CONTENT);
+        final int targetHeight = v.getMeasuredHeight();
+
+        v.getLayoutParams().height = 0;
+        v.setVisibility(View.VISIBLE);
+        Animation a = new Animation()
+        {
+            @Override
+            protected void applyTransformation(float interpolatedTime, Transformation t) {
+                v.getLayoutParams().height = interpolatedTime == 1
+                        ? AbsListView.LayoutParams.WRAP_CONTENT
+                        : (int)(targetHeight * interpolatedTime);
+                v.requestLayout();
+            }
+
+            @Override
+            public boolean willChangeBounds() {
+                return true;
+            }
+        };
+
+        // 1dp/ms
+        a.setDuration((int)(targetHeight / v.getContext().getResources().getDisplayMetrics().density)+200);
+        v.startAnimation(a);
+    }
+
+    public static void collapse(final View v) {
+        final int initialHeight = v.getMeasuredHeight();
+
+        Animation a = new Animation()
+        {
+            @Override
+            protected void applyTransformation(float interpolatedTime, Transformation t) {
+                if(interpolatedTime == 1){
+                    v.setVisibility(View.GONE);
+                }else{
+                    v.getLayoutParams().height = initialHeight - (int)(initialHeight * interpolatedTime);
+                    v.requestLayout();
+                }
+            }
+
+            @Override
+            public boolean willChangeBounds() {
+                return true;
+            }
+        };
+
+        // 1dp/ms
+        a.setDuration((int)(initialHeight / v.getContext().getResources().getDisplayMetrics().density)+200);
+        v.startAnimation(a);
     }
 }
