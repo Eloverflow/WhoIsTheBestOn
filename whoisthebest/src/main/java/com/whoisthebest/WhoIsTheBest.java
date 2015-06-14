@@ -28,7 +28,6 @@ public class WhoIsTheBest extends FragmentActivity {
 	ViewPager pager = null;
     static FragmentManager fragManager;
 	private int defaultPage = 1;
-	private Boolean onRestaure = false;
     static HashMap<String,String> user = new HashMap<String, String>();
     Fragment fragment1, fragment2, fragment3, fragment4;
     public static int INTERVAL_ALARM = 30000;
@@ -47,25 +46,8 @@ public class WhoIsTheBest extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-        DatabaseHandler db = new DatabaseHandler(getApplicationContext());
-        /**
-         * Hashmap to load data from the Sqlite database
-         **/
-        user = db.getUserDetails();
-
-        //Alarme
-        // Création de l'intention pour le déclenchement de l'alarme.
-        this.alarmIntent = new Intent(this, AlarmReceiver.class);
-
-        // Récupération du gestionnaire d'alarme.
-        this.alarmMgr = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
-
-        activerAlarme();
-        //Alarme
-
 
         //Si on vient de d�marer l'applications
-
         whoIsTheBestFragments();
 	}
 
@@ -125,10 +107,12 @@ public class WhoIsTheBest extends FragmentActivity {
                 this.getIntent().removeExtra("page");
             }
             else{
+                firstLaunchSetup();
                 goBackToGoodPage();
             }
         }
         else{
+            firstLaunchSetup();
             goBackToGoodPage();
         }
     }
@@ -143,6 +127,25 @@ public class WhoIsTheBest extends FragmentActivity {
             pager.setCurrentItem(defaultPage);
         }
 	}
+
+    public void firstLaunchSetup(){
+        DatabaseHandler db = new DatabaseHandler(getApplicationContext());
+        /**
+         * Hashmap to load data from the Sqlite database
+         **/
+        user = db.getUserDetails();
+
+        //Alarme
+        // Création de l'intention pour le déclenchement de l'alarme.
+        this.alarmIntent = new Intent(this, AlarmReceiver.class);
+
+        // Récupération du gestionnaire d'alarme.
+        this.alarmMgr = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+
+        activerAlarme();
+        //Alarme
+
+    }
 
     @Override
 	public void onSaveInstanceState(Bundle savedInstanceState) {

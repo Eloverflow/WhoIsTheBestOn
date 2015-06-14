@@ -11,7 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.Transformation;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,6 +51,9 @@ public class ListFriend extends ArrayAdapter<String>{
         final ImageView imageCheck = (ImageView) rowView.findViewById(R.id.imgCheck);
         final ImageView addCheck = (ImageView) rowView.findViewById(R.id.addCheck);
         ImageView imageFav = (ImageView) rowView.findViewById(R.id.imgFavorites);
+        ImageButton buttonFav = (ImageButton) rowView.findViewById(R.id.buttonFav);
+        ImageButton buttonDelete = (ImageButton) rowView.findViewById(R.id.buttonDelete);
+        ImageButton buttonBlock = (ImageButton) rowView.findViewById(R.id.buttonBlock);
 
 
         //Ce qu'on met pour remplacer
@@ -60,9 +65,11 @@ public class ListFriend extends ArrayAdapter<String>{
             case 0:{
                 imageCheck.setImageResource(android.R.drawable.ic_delete);
                 addCheck.setImageResource(android.R.drawable.ic_input_add);
+                buttonDelete.setVisibility(View.GONE);
+                imageCheck.setTag("reqIn");
 
                 //On click effect sur le + de la ligne
-                rowView.findViewById(R.id.addCheck).setOnClickListener(new View.OnClickListener() {
+                addCheck.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
@@ -76,7 +83,7 @@ public class ListFriend extends ArrayAdapter<String>{
 
                                 //Have to correct the return from API no success = 1 on success
                                 try {
-                                    if(retour.getInt("success") == 0){
+                                    if (retour.getInt("success") == 0) {
                                         flag = 1;
                                     }
                                 } catch (JSONException e) {
@@ -87,16 +94,58 @@ public class ListFriend extends ArrayAdapter<String>{
 
                             @Override
                             protected void onPostExecute(Integer integer) {
-                                if(integer == 1)
-                                {
+                                if (integer == 1) {
                                     //Toast.makeText(mLinearLayout.getContext(), "This user does not exist", Toast.LENGTH_LONG).show();
                                     //stopLoading();
-                                }
-                                else{
+                                } else {
                                     //rowView.setVisibility(View.GONE);
                                     addCheck.setImageResource(0);
                                     imageCheck.setImageResource(R.drawable.icone_check);
-                                    Toast.makeText(getContext(),"Friend added",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getContext(), "Friend added", Toast.LENGTH_LONG).show();
+
+                                    //Toast.makeText(mLinearLayout.getContext(), "Friend request sent", Toast.LENGTH_LONG).show();
+                                    //onRefresh();
+                                    //friendName.setText("");
+                                }
+
+                            }
+                        }.execute();
+
+                    }
+                });
+
+                imageCheck.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        new AsyncTask<Void, Void, Integer>() {
+
+                            @Override
+                            protected Integer doInBackground(Void... voids) {
+                                FriendFunctions friendFunctions = new FriendFunctions();
+                                JSONObject retour = friendFunctions.deleteFriend(WhoIsTheBest.user.get("uid"), ((TextView) rowView.findViewById(R.id.friendName)).getText().toString());
+                                Integer flag = 0;
+
+                                //Have to correct the return from API no success = 1 on success
+                                try {
+                                    if (retour.getInt("success") == 0) {
+                                        flag = 1;
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                                return flag;
+                            }
+
+                            @Override
+                            protected void onPostExecute(Integer integer) {
+                                if (integer == 1) {
+                                    //Toast.makeText(mLinearLayout.getContext(), "This user does not exist", Toast.LENGTH_LONG).show();
+                                    //stopLoading();
+                                } else {
+                                    //rowView.setVisibility(View.GONE);
+                                    collapse(rowView);
+                                    Toast.makeText(getContext(), "Friend declined", Toast.LENGTH_LONG).show();
 
                                     //Toast.makeText(mLinearLayout.getContext(), "Friend request sent", Toast.LENGTH_LONG).show();
                                     //onRefresh();
@@ -113,30 +162,39 @@ public class ListFriend extends ArrayAdapter<String>{
             // Favoris
             case 1:{
                 imageFav.setVisibility(View.VISIBLE);
+                buttonFav.setVisibility(View.VISIBLE);
+                imageCheck.setTag("bestFriend");
                 break;
             }
 
             // Ami(e)
             case 2:{
                 imageCheck.setImageResource(R.drawable.icone_check);
+                buttonFav.setVisibility(View.VISIBLE);
+                imageCheck.setTag("friend");
                 break;
             }
 
             // Pending out
-            case 3:{
+            case 3: {
                 imageCheck.setImageResource(android.R.drawable.sym_action_email);
-                break;
-            }
-
-            // Supprimé
-            case 4:{
-                imageCheck.setImageResource(android.R.drawable.ic_menu_delete);
+                imageCheck.setTag("reqSent");
+                buttonBlock.setVisibility(View.GONE);
                 break;
             }
 
             // Bloqué
-            case 5:{
+            case 4:{
                 imageCheck.setImageResource(android.R.drawable.presence_offline);
+                imageCheck.setTag("blocked");
+                break;
+            }
+
+            // Supprimé
+            case 5:{
+                imageCheck.setImageResource(android.R.drawable.ic_menu_delete);
+                buttonBlock.setImageResource(android.R.drawable.ic_input_add);
+                imageCheck.setTag("deleted");
                 break;
             }
 
@@ -148,5 +206,31 @@ public class ListFriend extends ArrayAdapter<String>{
         rowView.startAnimation(animation);
 
         return rowView;
+    }
+
+    public static void collapse(final View v) {
+        final int initialHeight = v.getMeasuredHeight();
+
+        Animation a = new Animation()
+        {
+            @Override
+            protected void applyTransformation(float interpolatedTime, Transformation t) {
+                if(interpolatedTime == 1){
+                    v.setVisibility(View.GONE);
+                }else{
+                    v.getLayoutParams().height = initialHeight - (int)(initialHeight * interpolatedTime);
+                    v.requestLayout();
+                }
+            }
+
+            @Override
+            public boolean willChangeBounds() {
+                return true;
+            }
+        };
+
+        // 1dp/ms
+        a.setDuration((int)(initialHeight / v.getContext().getResources().getDisplayMetrics().density)+200);
+        v.startAnimation(a);
     }
 }

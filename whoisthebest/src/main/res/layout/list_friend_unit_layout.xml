@@ -87,6 +87,20 @@
             android:layout_width="0dp"
             android:padding="4dp"
             android:layout_height="fill_parent"
+            android:visibility="gone"
+            android:layout_weight="1"
+            android:src="@android:drawable/btn_star"
+            android:id="@+id/buttonFav"
+            android:layout_marginTop="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginEnd="1dp"
+
+            android:background="@drawable/button_challenge_action"/>
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:padding="4dp"
+            android:layout_height="fill_parent"
             android:layout_weight="1"
             android:src="@android:drawable/ic_menu_close_clear_cancel"
             android:id="@+id/buttonBlock"

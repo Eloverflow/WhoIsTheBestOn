@@ -22,6 +22,11 @@ public class FriendFunctions {
     private static String target_tag = "target";
     private static String addFriends_tag = "addFriend";
     private static String acceptFriend_tag = "acceptFriend";
+    private static String deleteFriend_tag = "deleteFriend";
+    private static String blockFriend_tag = "blockFriend";
+    private static String cancelFriendReq_tag = "cancelFriendReq";
+    private static String addFavFriend_tag = "addFavFriend";
+    private static String permaDeleteFriend_tag = "permaDeleteFriend";
 
     // constructor
     public FriendFunctions() {
@@ -46,7 +51,6 @@ public class FriendFunctions {
         params.add(new BasicNameValuePair("userId", userId));
         params.add(new BasicNameValuePair("friendUsername", friendUsername));
         JSONObject json = jsonParser.getJSONFromUrl(friendsURL, params);
-        Log.d("test3", json.toString());
         return json;
     }
 
@@ -58,7 +62,60 @@ public class FriendFunctions {
         params.add(new BasicNameValuePair("userId", userId));
         params.add(new BasicNameValuePair("friendUsername", friendUsername));
         JSONObject json = jsonParser.getJSONFromUrl(friendsURL, params);
-        Log.d("test3", json.toString());
+        return json;
+    }
+
+    public JSONObject deleteFriend(String userId, String friendUsername) {
+
+        // Building Parameters
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("tag", deleteFriend_tag));
+        params.add(new BasicNameValuePair("userId", userId));
+        params.add(new BasicNameValuePair("friendUsername", friendUsername));
+        JSONObject json = jsonParser.getJSONFromUrl(friendsURL, params);
+        return json;
+    }
+
+    public JSONObject permaDeleteFriend(String userId, String friendUsername) {
+
+        // Building Parameters
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("tag", permaDeleteFriend_tag));
+        params.add(new BasicNameValuePair("userId", userId));
+        params.add(new BasicNameValuePair("friendUsername", friendUsername));
+        JSONObject json = jsonParser.getJSONFromUrl(friendsURL, params);
+        return json;
+    }
+    public JSONObject cancelRequest(String userId, String friendUsername) {
+
+        // Building Parameters
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("tag", cancelFriendReq_tag));
+        params.add(new BasicNameValuePair("userId", userId));
+        params.add(new BasicNameValuePair("friendUsername", friendUsername));
+        JSONObject json = jsonParser.getJSONFromUrl(friendsURL, params);
+        return json;
+    }
+
+    public JSONObject blockFriend(String userId, String friendUsername) {
+
+        // Building Parameters
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("tag", blockFriend_tag));
+        params.add(new BasicNameValuePair("userId", userId));
+        params.add(new BasicNameValuePair("friendUsername", friendUsername));
+        JSONObject json = jsonParser.getJSONFromUrl(friendsURL, params);
+        return json;
+    }
+
+    public JSONObject addFavFriend(String userId, String friendUsername) {
+
+        // Building Parameters
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("tag", addFavFriend_tag));
+        params.add(new BasicNameValuePair("userId", userId));
+        params.add(new BasicNameValuePair("friendUsername", friendUsername));
+        JSONObject json = jsonParser.getJSONFromUrl(friendsURL, params);
         return json;
     }
 

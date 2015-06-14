@@ -138,7 +138,6 @@ public class ProcessLoadListChallenge extends AsyncTask<String, String, JSONObje
                     {
                         if (view.hasOnClickListeners())
 
-                        Log.d("test3", "atatatat");
                         lastView.setClickable(false);
                         lastView = null;
                     }
