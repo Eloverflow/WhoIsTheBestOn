@@ -4,6 +4,7 @@ package com.whoisthebest;
  * Created by Jean on 2015-01-23.
  */
 import android.app.Activity;
+import android.app.Notification;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,6 +25,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import library.FriendFunctions;
+import library.NotificationsFunctions;
 
 public class ListFriend extends ArrayAdapter<String>{
     private final Activity context;
@@ -67,6 +69,25 @@ public class ListFriend extends ArrayAdapter<String>{
                 addCheck.setImageResource(android.R.drawable.ic_input_add);
                 buttonDelete.setVisibility(View.GONE);
                 imageCheck.setTag("reqIn");
+
+                //IF this was loaded, the user have seen the notification
+                new AsyncTask<Void, Void, Integer>() {
+
+                    @Override
+                    protected Integer doInBackground(Void... voids) {
+                        NotificationsFunctions notifFunctions = new NotificationsFunctions();
+                        JSONObject retourDeNotif = notifFunctions.friendNotifSeen(WhoIsTheBest.user.get("uid"), ((TextView) rowView.findViewById(R.id.friendName)).getText().toString());
+                        Integer flag = 0;//Have to correct the return from API no success = 1 on success
+                        try {
+                            if (retourDeNotif.getInt("success") == 0) {
+                                flag = 1;
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        return flag;
+                    }
+                }.execute();
 
                 //On click effect sur le + de la ligne
                 addCheck.setOnClickListener(new View.OnClickListener() {
