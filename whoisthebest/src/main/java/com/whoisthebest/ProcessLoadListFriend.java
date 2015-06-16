@@ -159,7 +159,7 @@ import java.util.ArrayList;
                 friendUnitView.findViewById(R.id.buttonInfo).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //On click on instancie une nouvelle activity avec notre Challenge Selectionné
+                        /*//On click on instancie une nouvelle activity avec notre Challenge Selectionné
                         Intent myIntent = new Intent(v.getContext(), PageChallenge.class);
 
                         //On ajouter les information à transmettre en Extra
@@ -170,8 +170,8 @@ import java.util.ArrayList;
 
                         //Petite effet de transition
                         ((Activity) v.getContext()).overridePendingTransition(R.anim.bottom_up, 0);
-                        //this.overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-
+                        //this.overridePendingTransition(R.anim.fadein, R.anim.fadeout);*/
+                        Toast.makeText(context, "Display user profile", Toast.LENGTH_SHORT).show();
 
                     }
                 });

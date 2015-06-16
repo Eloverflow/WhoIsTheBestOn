@@ -33,6 +33,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
+        <ImageButton
+            android:id="@+id/searchChallengeButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@android:drawable/ic_menu_search"
+            android:layout_alignParentLeft="true"
+            android:contentDescription="@string/boutonSettingDesc"
+            android:textColor="@color/colorTransparent" />
 
         <ImageButton
             android:id="@+id/mainPageButton"
@@ -126,5 +134,36 @@
         </android.support.v4.widget.SwipeRefreshLayout>
 
     </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_margin="0dp"
+        android:background="@color/colorNoir"
+        android:id="@+id/challengeExtention"
+        android:layout_below="@+id/fragmentPagesHeader">
+
+        <EditText
+            android:id="@+id/challengeName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:hint="Search/Create a challenge"
+            android:layout_marginRight="1dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="3dp"/>
+
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:src="@android:drawable/stat_notify_more"
+            android:id="@+id/searchChallengeNameButton"
+            android:layout_marginTop="0dp"
+            android:background="@color/colorTransparent"/>
+
+    </LinearLayout>
 
 </RelativeLayout>

@@ -33,23 +33,22 @@
 
         <ImageButton
             android:id="@+id/searchFriendButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:drawable/btn_plus"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@android:drawable/ic_menu_search"
             android:layout_alignParentLeft="true"
             android:contentDescription="@string/boutonSettingDesc"
             android:textColor="@color/colorTransparent" />
 
         <ImageButton
-            android:id="@+id/buttonNotif"
-            android:layout_margin="1dp"
+            android:id="@+id/buttonRefresh"
+            android:layout_margin="3dp"
             android:layout_width="42dp"
             android:layout_height="42dp"
-            android:src="@android:drawable/ic_dialog_info"
+            android:src="@android:drawable/stat_notify_sync"
             android:layout_alignParentRight="true"
             android:scaleType="fitXY"
-            android:contentDescription="@string/boutonSettingDesc"
-            android:onClick="menu"   />
+            android:contentDescription="@string/boutonSettingDesc"  />
 
     </RelativeLayout>
 
@@ -97,7 +96,8 @@
             android:layout_weight="6"
             android:hint="Friend Username"
             android:layout_marginRight="1dp"
-            android:layout_marginTop="2dp"/>
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"/>
 
 
         <ImageButton
@@ -106,7 +106,7 @@
             android:layout_weight="1"
             android:src="@android:drawable/ic_input_add"
             android:id="@+id/addFriendButton"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="0dp"
             android:background="@color/colorTransparent"/>
 
     </LinearLayout>

@@ -50,6 +50,7 @@ public class Fragment4 extends Fragment implements View.OnClickListener,SwipeRef
 
         mLinearLayout.findViewById(R.id.searchFriendButton).setOnClickListener(this);
         mLinearLayout.findViewById(R.id.addFriendButton).setOnClickListener(this);
+        mLinearLayout.findViewById(R.id.buttonRefresh).setOnClickListener(this);
 
         swipeLayout = (SwipeRefreshLayout)mLinearLayout.findViewById(R.id.swipe_container);
         swipeLayout.setOnRefreshListener(this);
@@ -107,6 +108,9 @@ public class Fragment4 extends Fragment implements View.OnClickListener,SwipeRef
                 friendName.requestFocus();
                 imm.showSoftInput(friendName, InputMethodManager.SHOW_IMPLICIT);
             }
+        }
+        else if(button.getId() == R.id.buttonRefresh){
+            onRefresh();
         }
         else if(button.getId() == R.id.addFriendButton){
 
