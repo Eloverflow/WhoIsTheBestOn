@@ -30,7 +30,7 @@ public class WhoIsTheBest extends FragmentActivity {
 	private int defaultPage = 1;
     static HashMap<String,String> user = new HashMap<String, String>();
     Fragment fragment1, fragment2, fragment3, fragment4;
-    public static int INTERVAL_ALARM = 30000;
+    public static int INTERVAL_ALARM = 120000;
 
     // Identifiant pour l'intention en suspens de l'alarme.
     public static final int ID_ALARM = 12345;

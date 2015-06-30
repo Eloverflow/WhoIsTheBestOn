@@ -1,10 +1,12 @@
 package com.whoisthebest;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -16,6 +18,13 @@ import android.widget.AbsListView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import library.ChallengesFunctions;
+import library.FriendFunctions;
 
 //Fragment Page WhoIsTheBest?(Main)
 //Where you can see the list of the different challenge that you can do or send to a friend
@@ -93,6 +102,53 @@ public class Fragment2 extends Fragment implements OnClickListener,SwipeRefreshL
                 imm.showSoftInput(challengeName, InputMethodManager.SHOW_IMPLICIT);
             }
         }
+        else if(button.getId() == R.id.searchChallengeNameButton){
+
+            cProgressDialog = new LoadingProgressDialog(getActivity());
+            cProgressDialog.setCancelable(true);
+            cProgressDialog.show();
+
+
+            new AsyncTask<Void, Void, Integer>() {
+
+                @Override
+                protected Integer doInBackground(Void... voids) {
+                    ChallengesFunctions challengesFunction = new ChallengesFunctions();
+                    JSONObject retour = challengesFunction.searchChallenge(challengeName.getText().toString()); //.addFriend(WhoIsTheBest.user.get("uid"), friendName.getText().toString());
+                    Integer flag = 0;
+
+                    Log.d("test ",retour.toString());
+
+                    //Have to correct the return from API no success = 1 on success
+                    try {
+                        if(retour.getInt("success") == 0){
+                            flag = 1;
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    return flag;
+                }
+
+                @Override
+                protected void onPostExecute(Integer integer) {
+                    if(integer == 1)
+                    {
+                        Toast.makeText(mLinearLayout.getContext(), "This user does not exist or is already your friend", Toast.LENGTH_LONG).show();
+                        stopLoading();
+                    }
+                    else{
+                        Toast.makeText(mLinearLayout.getContext(), "Search challenge request sent", Toast.LENGTH_LONG).show();
+                        onRefresh();
+                        collapse(challengeExtention);
+                    }
+
+                }
+            }.execute();
+
+
+
+        }
     }
 
     public void tab1(){
@@ -152,11 +208,15 @@ public class Fragment2 extends Fragment implements OnClickListener,SwipeRefreshL
     @Override
     public void onRefresh() {
         new ProcessLoadListChallenge(getActivity(), mLinearLayout).execute();
+        stopLoading();
+    }
+
+    public void stopLoading(){
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                cProgressDialog.dismiss();
                 swipeLayout.setRefreshing(false);
+                cProgressDialog.dismiss();
             }
         }, 600);
     }

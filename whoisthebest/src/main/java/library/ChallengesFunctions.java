@@ -17,6 +17,7 @@ public class ChallengesFunctions {
     private static String challengesURL = "http://104.131.185.129/witb/android/challenges.php";
 
     private static String challenges_tag = "challenges";
+    private static String searchChallenge_tag = "searchChallenge";
     private static String target_tag = "target";
 
     // constructor
@@ -34,6 +35,14 @@ public class ChallengesFunctions {
         return json;
     }
 
+    public JSONObject searchChallenge(String searchedName){
 
+        // Building Parameters
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("tag", searchChallenge_tag));
+        params.add(new BasicNameValuePair("searchedName", searchedName));
+        JSONObject json = jsonParser.getJSONFromUrl(challengesURL, params);
+        return json;
+    }
 
 }
