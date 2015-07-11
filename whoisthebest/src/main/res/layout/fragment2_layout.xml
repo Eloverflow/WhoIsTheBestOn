@@ -146,21 +146,25 @@
 
         <EditText
             android:id="@+id/challengeName"
+            android:inputType="textWebEditText"
+            android:imeOptions="actionSend"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="6"
             android:hint="Search/Create a challenge"
+            android:layout_marginEnd="1dp"
             android:layout_marginRight="1dp"
+            android:layout_marginStart="3dp"
             android:layout_marginLeft="3dp"
             android:layout_marginTop="3dp"/>
 
 
         <ImageButton
+            android:id="@+id/searchChallengeNameButton"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:src="@android:drawable/stat_notify_more"
-            android:id="@+id/searchChallengeNameButton"
             android:layout_marginTop="0dp"
             android:background="@color/colorTransparent"/>
 

@@ -6,17 +6,21 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -35,6 +39,7 @@ public class Fragment4 extends Fragment implements View.OnClickListener,SwipeRef
     LoadingProgressDialog cProgressDialog;
     ListView list;
     InputMethodManager imm;
+    ImageButton addFriendButton;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -64,6 +69,20 @@ public class Fragment4 extends Fragment implements View.OnClickListener,SwipeRef
         cProgressDialog.show();
 
         imm = (InputMethodManager) this.getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        // Hard coded ?
+        addFriendButton = (ImageButton) mLinearLayout.findViewById(R.id.addFriendButton);
+
+        friendName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEND) {
+                    addFriendButton.performClick();
+                    return true;
+                }
+                return false;
+            }
+        });
+        // Hard coded ?
 
         onRefresh();
 

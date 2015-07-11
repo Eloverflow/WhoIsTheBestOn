@@ -1,10 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/colorBackground"
-    android:orientation="vertical"
-    tools:context=".PageChallenge">
+    android:orientation="vertical">
 
     <!-- To resolve : http://stackoverflow.com/questions/18664934/how-to-play-a-video-with-the-youtube-api-using-youtubeplayerfragment-->
 
@@ -58,37 +56,17 @@
         android:background="@color/colorBackground" >
 
 
-        <com.google.android.youtube.player.YouTubePlayerView
-            android:layout_width="fill_parent"
-            android:layout_height="200dp"
-            android:id="@+id/videoView1"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
-            android:background="@color/colorNoir"/>
 
-        <TextView
+        <EditText
             android:layout_width="fill_parent"
             android:layout_height="80dp"
-            android:text="Description of the challenge"
+            android:hint="Description of the challenge"
             android:id="@+id/textView"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/videoView1"
             android:layout_alignParentStart="true"
             android:background="@drawable/border_bottom"/>
 
-
-        <ListView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/listView"
-            android:divider="@color/colorNoir"
-            android:dividerHeight="1dp"
-            android:cacheColorHint="#00000000"
-            android:listSelector="@drawable/list_row_selector"
-            android:layout_below="@+id/textView"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
 
 
     </RelativeLayout>

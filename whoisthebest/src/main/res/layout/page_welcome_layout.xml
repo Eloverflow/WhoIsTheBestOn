@@ -16,16 +16,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
     	android:layout_weight="1.00">
-
+        <RelativeLayout
+            android:id="@+id/header3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp">
         <Button
             android:id="@+id/authPageButtonLogin"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:background="@drawable/button_authentification_pages"
-            android:layout_marginRight="7dp"
-            android:layout_marginLeft="7dp"
+            android:background="@drawable/button_authentification_page_selector"
             android:paddingLeft="35dp"
             android:paddingRight="35dp"
             android:text="@string/loginButton"
@@ -38,10 +41,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/authPageButtonLogin"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/button_authentification_pages"
-            android:layout_marginRight="7dp"
-            android:layout_marginLeft="7dp"
-            android:layout_marginTop="8dp"
+            android:background="@drawable/button_authentification_page_selector"
+            android:layout_marginTop="4dp"
             android:paddingLeft="35dp"
             android:paddingRight="35dp"
             android:text="@string/registerButton"
@@ -49,6 +50,6 @@
             android:textSize="26sp" />
 
     </RelativeLayout>
-
+    </RelativeLayout>
 </LinearLayout>
 </merge>

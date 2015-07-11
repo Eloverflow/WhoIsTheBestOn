@@ -1,0 +1,95 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+ 	
+	<!-- Header aligned to top -->
+
+	<RelativeLayout android:id="@+id/overlay_fragment_top"
+                 android:layout_width="fill_parent"
+                 android:layout_height="fill_parent"
+    				android:orientation="vertical"
+            	android:layout_margin="0dp">
+
+        <!-- Header aligned to top -->
+
+        <LinearLayout
+            android:id="@+id/fragmentPagesHeader"
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:background="@color/colorTransparent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+        </LinearLayout>
+
+
+
+	<RelativeLayout
+	    android:gravity="center"
+	    android:id="@+id/overlay_fragment_body"
+	    android:layout_width="match_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_alignParentLeft="true"
+	    android:layout_below="@+id/fragmentPagesHeader"
+	    android:background="@color/colorNoirTransparent"
+	    android:onClick="killActivity" >
+
+
+
+		<TextView
+			android:text="Your challenge don't exist !"
+			android:id="@+id/textInfoPreCreateChallenge"
+			android:textSize="25sp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true" />
+
+		<TextView
+			android:text="Do you want to create it ?"
+			android:id="@+id/textPreCreateChallenge"
+			android:layout_below="@+id/textInfoPreCreateChallenge"
+			android:layout_marginTop="40dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true" />
+
+	    <RelativeLayout
+	        android:id="@+id/overlay_fragment_container"
+	        android:layout_width="200dp"
+			android:layout_below="@+id/textPreCreateChallenge"
+	        android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
+	        android:layout_centerHorizontal="true"
+	        android:background="@color/colorMenu"
+	        android:paddingTop="5dp"
+	        android:paddingBottom="5dp"
+	        android:paddingLeft="5dp"
+	        android:paddingRight="5dp" >
+
+	        <Button
+	            android:id="@+id/button1"
+	            android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+	            android:background="@drawable/button_menu_overlay"
+	            android:onClick="createChallenge"
+	            android:text="Yes"
+	            android:textColor="@color/colorMainText" />
+
+	        <Button
+	            android:id="@+id/button2"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignLeft="@+id/button1"
+	            android:layout_alignRight="@+id/button1"
+	            android:layout_below="@+id/button1"
+	            android:layout_marginTop="5dp"
+	            android:background="@drawable/button_menu_overlay"
+	            android:onClick="killActivity"
+	            android:text="NO"
+	            android:textColor="@color/colorMainText" />
+	    </RelativeLayout>
+	</RelativeLayout>
+    
+	</RelativeLayout>
+	
+    
+</merge>

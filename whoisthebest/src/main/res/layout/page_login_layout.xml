@@ -15,43 +15,49 @@
         android:layout_height="fill_parent"
         android:layout_weight="1.00">
 
-
+    <RelativeLayout
+        android:id="@+id/header3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp">
 
         <EditText
             android:id="@+id/loginPageFormEmail"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginRight="7dp"
-            android:layout_marginLeft="7dp"
-            android:background="@color/colorBackground"
+            android:background="@drawable/edittext_selector"
             android:textColor="@color/colorNoir"
             android:textColorHint="@color/colorNoirTransparent"
-            android:ems="14"
+            android:ems="12"
             android:hint="@string/loginEmail"
-            android:padding="4dp"
+            android:padding="8dp"
             android:textSize="26sp"
-            android:inputType="textEmailAddress"  >
+            android:inputType="textEmailAddress">
         </EditText>
-        
+        <!--
+        -->
+
         <EditText
             android:id="@+id/loginPageFormPassword"
+            android:imeOptions="actionSend"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/loginPageFormEmail"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="7dp"
-            android:layout_marginLeft="7dp"
-            android:background="@color/colorBackground"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/edittext_selector"
+            android:hint="@string/loginPassword"
             android:textColor="@color/colorNoir"
             android:textColorHint="@color/colorNoirTransparent"
-            android:ems="14"
-            android:hint="@string/loginPassword"
+            android:ems="12"
             android:inputType="textPassword"
-            android:padding="4dp" 
+            android:padding="8dp"
 		    android:textSize="26sp" >
         </EditText>
+<!--
+        -->
         
         
         <Button
@@ -63,11 +69,11 @@
             android:layout_alignStart="@+id/loginPageFormPassword"
             android:layout_alignEnd="@+id/loginPageFormPassword"
             android:layout_below="@+id/loginPageFormPassword"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="3dp"
             android:paddingLeft="35dp"
             android:paddingRight="35dp"
             android:text="@string/loginGo"
-            android:background="@drawable/button_authentification_pages"
+            android:background="@drawable/button_authentification_page_selector"
             android:textColor="@color/colorMainText"
             android:textSize="26sp"/>
 
@@ -106,6 +112,7 @@
               android:textColor="@color/colorMainText"
               android:textSize="26sp" /> -->
 
+    </RelativeLayout>
     </RelativeLayout>
 
 </LinearLayout>

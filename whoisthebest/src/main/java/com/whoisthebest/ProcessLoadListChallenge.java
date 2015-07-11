@@ -11,6 +11,7 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.Transformation;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import library.ChallengesFunctions;
@@ -28,6 +29,7 @@ import java.util.ArrayList;
 public class ProcessLoadListChallenge extends AsyncTask<String, String, JSONObject> {
     private View rootView;
     private Context context;
+    private String listType;
     private LoadingProgressDialog cProgressDialog;
     ArrayList<String> challengesStringArray = new ArrayList<>();
     Integer[] voteArray;
@@ -39,9 +41,10 @@ public class ProcessLoadListChallenge extends AsyncTask<String, String, JSONObje
     private ArrayList<Integer> upVotesIntArray = new ArrayList<>();
     private ArrayList<Integer> downVotesIntArray = new ArrayList<>();
 
-    public ProcessLoadListChallenge(Context newContext, View newRootView) {
+    public ProcessLoadListChallenge(Context newContext, View newRootView, String newListType) {
         context = newContext;
         rootView = newRootView;
+        listType = newListType;
     }
 
     @Override
@@ -61,8 +64,20 @@ public class ProcessLoadListChallenge extends AsyncTask<String, String, JSONObje
 
     @Override
     protected JSONObject doInBackground(String... args){
-        ChallengesFunctions challengesFunction = new ChallengesFunctions();
-        JSONObject json = challengesFunction.getChallengesList("poppular");
+
+        JSONObject json;
+        if(listType.equals("searchChallenge")){
+
+            EditText challengeName = (EditText)rootView.findViewById(R.id.challengeName);
+            ChallengesFunctions challengesFunction = new ChallengesFunctions();
+            json = challengesFunction.searchChallenge(challengeName.getText().toString());
+
+        }
+        else {
+            ChallengesFunctions challengesFunction = new ChallengesFunctions();
+            json = challengesFunction.getChallengesList("poppular");
+
+        }
         return json;
 
     }
@@ -90,6 +105,16 @@ public class ProcessLoadListChallenge extends AsyncTask<String, String, JSONObje
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
+                //List empty ?
+                //Retourner quelque chose pour le dire et alors faire popper une fenetre pour créer un challenge
+                //Une windows en ombre popup et te dit que il y a pas de result alors veux-tu créer le challenge ?
+                Intent myIntent = new Intent(context, OverlayPreCreateChallenge.class);
+
+                //On ajouter les information à transmettre en Extra
+                myIntent.putExtra("challenge", ((EditText)rootView.findViewById(R.id.challengeName)).getText().toString());
+
+                context.startActivity(myIntent);
+                //context.overridePendingTransition(R.anim.fadein, R.anim.fadeout);
             }
 
             //On crée notre custom adapter de ListView

@@ -7,17 +7,21 @@ import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -36,6 +40,7 @@ public class Fragment2 extends Fragment implements OnClickListener,SwipeRefreshL
     LinearLayout challengeExtention;
     EditText challengeName;
     InputMethodManager imm;
+    ImageButton searchChallengeNameButton;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,11 +64,27 @@ public class Fragment2 extends Fragment implements OnClickListener,SwipeRefreshL
                 android.R.color.holo_red_light);
 
 
+        // Hard coded ?
+        searchChallengeNameButton = (ImageButton) mLinearLayout.findViewById(R.id.searchChallengeNameButton);
+
+        challengeName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEND) {
+                    searchChallengeNameButton.performClick();
+                    return true;
+                }
+                return false;
+            }
+        });
+        // Hard coded ?
+
+
         //On ajoute un listener � nos boutons
         mLinearLayout.findViewById(R.id.f2_button1).setOnClickListener(this);
         mLinearLayout.findViewById(R.id.f2_button2).setOnClickListener(this);
         mLinearLayout.findViewById(R.id.f2_button3).setOnClickListener(this);
         mLinearLayout.findViewById(R.id.searchChallengeButton).setOnClickListener(this);
+        mLinearLayout.findViewById(R.id.searchChallengeNameButton).setOnClickListener(this);
 
         //Default Tab
         tab1();
@@ -87,6 +108,9 @@ public class Fragment2 extends Fragment implements OnClickListener,SwipeRefreshL
         {
             tab3();
         }
+        else if(button.getId() == R.id.searchChallengeNameButton){
+            tabSearch();
+        }
         else if(button.getId() == R.id.searchChallengeButton)
         {
             if (challengeExtention.getVisibility() == View.VISIBLE)
@@ -101,53 +125,6 @@ public class Fragment2 extends Fragment implements OnClickListener,SwipeRefreshL
                 challengeName.requestFocus();
                 imm.showSoftInput(challengeName, InputMethodManager.SHOW_IMPLICIT);
             }
-        }
-        else if(button.getId() == R.id.searchChallengeNameButton){
-
-            cProgressDialog = new LoadingProgressDialog(getActivity());
-            cProgressDialog.setCancelable(true);
-            cProgressDialog.show();
-
-
-            new AsyncTask<Void, Void, Integer>() {
-
-                @Override
-                protected Integer doInBackground(Void... voids) {
-                    ChallengesFunctions challengesFunction = new ChallengesFunctions();
-                    JSONObject retour = challengesFunction.searchChallenge(challengeName.getText().toString()); //.addFriend(WhoIsTheBest.user.get("uid"), friendName.getText().toString());
-                    Integer flag = 0;
-
-                    Log.d("test ",retour.toString());
-
-                    //Have to correct the return from API no success = 1 on success
-                    try {
-                        if(retour.getInt("success") == 0){
-                            flag = 1;
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    return flag;
-                }
-
-                @Override
-                protected void onPostExecute(Integer integer) {
-                    if(integer == 1)
-                    {
-                        Toast.makeText(mLinearLayout.getContext(), "This user does not exist or is already your friend", Toast.LENGTH_LONG).show();
-                        stopLoading();
-                    }
-                    else{
-                        Toast.makeText(mLinearLayout.getContext(), "Search challenge request sent", Toast.LENGTH_LONG).show();
-                        onRefresh();
-                        collapse(challengeExtention);
-                    }
-
-                }
-            }.execute();
-
-
-
         }
     }
 
@@ -205,9 +182,29 @@ public class Fragment2 extends Fragment implements OnClickListener,SwipeRefreshL
 
     }
 
+    public void tabSearch(){
+
+        //Si la tab n'est pas déjà sélectionné
+
+            mLinearLayout.findViewById(R.id.f2_button1).setSelected(false);
+            mLinearLayout.findViewById(R.id.f2_button2).setSelected(false);
+            mLinearLayout.findViewById(R.id.f2_button3).setSelected(false);
+
+            cProgressDialog = new LoadingProgressDialog(getActivity());
+            cProgressDialog.setCancelable(true);
+            cProgressDialog.show();
+
+            loadChallenge("searchChallenge");
+
+    }
+
     @Override
     public void onRefresh() {
-        new ProcessLoadListChallenge(getActivity(), mLinearLayout).execute();
+        loadChallenge("1");
+    }
+
+    public void loadChallenge(String listType){
+        new ProcessLoadListChallenge(getActivity(), mLinearLayout, listType).execute();
         stopLoading();
     }
 

@@ -3,7 +3,9 @@ package com.whoisthebest;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -41,7 +43,17 @@ public class PageLogin extends Activity {
                 finish();
             }});
 
-
+        // Hard coded ?
+        inputPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEND) {
+                    btnLogin.performClick();
+                    return true;
+                }
+                return false;
+            }
+        });
+        // Hard coded ?
 
 
 /**

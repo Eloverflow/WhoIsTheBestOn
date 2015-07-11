@@ -44,7 +44,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView2"
+        android:id="@+id/imgThumbsDown"
         android:src="@drawable/icone_thumbs_down"
         android:layout_marginTop="2dp"
         android:adjustViewBounds="true"
@@ -58,7 +58,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView3"
+        android:id="@+id/imgThumbsUp"
         android:adjustViewBounds="true"
         android:maxWidth="22dp"
         android:maxHeight="22dp"
@@ -66,7 +66,7 @@
         android:layout_marginTop="6dp"
         android:layout_marginBottom="2dp"
         android:src="@drawable/icone_thumbs_up"
-        android:layout_below="@+id/imageView2"
+        android:layout_below="@+id/imgThumbsDown"
         android:layout_toRightOf="@+id/downvote_nbr"
         android:layout_toEndOf="@+id/downvote_nbr" />
 
@@ -77,8 +77,8 @@
         android:layout_marginRight="2dp"
         android:text="12312321"
         android:id="@+id/downvote_nbr"
-        android:layout_toLeftOf="@+id/imageView2"
-        android:layout_toStartOf="@+id/imageView2"
+        android:layout_toLeftOf="@+id/imgThumbsDown"
+        android:layout_toStartOf="@+id/imgThumbsDown"
         android:textColor="@color/colorNoir"/>
 
     <TextView
@@ -87,7 +87,7 @@
         android:text="30"
         android:layout_marginRight="2dp"
         android:id="@+id/upvote_nbr"
-        android:layout_alignBottom="@+id/imageView3"
+        android:layout_alignBottom="@+id/imgThumbsUp"
         android:layout_alignRight="@+id/downvote_nbr"
         android:layout_alignEnd="@+id/downvote_nbr"
         android:textColor="@color/colorNoir" />
