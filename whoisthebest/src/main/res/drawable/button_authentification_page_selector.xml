@@ -3,5 +3,5 @@
     <item android:state_pressed="true" android:drawable="@drawable/button_authentification_pages_selected" /> <!--Quand on click-->
     <item android:state_selected="true" android:drawable="@drawable/button_authentification_pages_selected" />
     <item android:state_focused="true" android:drawable="@drawable/button_authentification_pages_selected" />
-    <item android:drawable="@drawable/button_authentification_pages" />
+    <item android:drawable="@drawable/new_button" />
 </selector>

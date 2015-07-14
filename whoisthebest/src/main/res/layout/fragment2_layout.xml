@@ -13,7 +13,7 @@
         android:id="@+id/fragmentPagesHeader"
         android:layout_width="fill_parent"
         android:layout_height="48dp"
-        android:background="@color/colorFrame"
+        android:background="@drawable/new_top"
         android:gravity="center">
 
 
@@ -46,7 +46,8 @@
             android:id="@+id/mainPageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_setting"
+            android:background="@drawable/new_button_menu"
+            android:padding="25dp"
             android:layout_alignParentRight="true"
             android:contentDescription="@string/boutonSettingDesc"
             android:textColor="@color/colorTransparent"

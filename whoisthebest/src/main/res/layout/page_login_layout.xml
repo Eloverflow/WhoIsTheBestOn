@@ -19,8 +19,8 @@
         android:id="@+id/header3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp">
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp">
 
         <EditText
             android:id="@+id/loginPageFormEmail"
@@ -33,7 +33,7 @@
             android:ems="12"
             android:hint="@string/loginEmail"
             android:padding="8dp"
-            android:textSize="26sp"
+            android:textSize="20sp"
             android:inputType="textEmailAddress">
         </EditText>
         <!--
@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/loginPageFormEmail"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/edittext_selector"
             android:hint="@string/loginPassword"
             android:textColor="@color/colorNoir"
@@ -54,7 +54,7 @@
             android:ems="12"
             android:inputType="textPassword"
             android:padding="8dp"
-		    android:textSize="26sp" >
+		    android:textSize="20sp" >
         </EditText>
 <!--
         -->
@@ -69,13 +69,13 @@
             android:layout_alignStart="@+id/loginPageFormPassword"
             android:layout_alignEnd="@+id/loginPageFormPassword"
             android:layout_below="@+id/loginPageFormPassword"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="10dp"
             android:paddingLeft="35dp"
             android:paddingRight="35dp"
             android:text="@string/loginGo"
             android:background="@drawable/button_authentification_page_selector"
             android:textColor="@color/colorMainText"
-            android:textSize="26sp"/>
+            android:textSize="20sp"/>
 
         <TextView
             android:layout_width="wrap_content"

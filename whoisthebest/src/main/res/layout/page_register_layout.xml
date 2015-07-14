@@ -19,8 +19,8 @@
             android:id="@+id/header3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp">
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="40dp">
 
         <EditText
             android:id="@+id/registerPageFormEmail"
@@ -33,7 +33,7 @@
             android:ems="12"
             android:hint="@string/loginEmail"
             android:padding="8dp"
-            android:textSize="26sp"
+            android:textSize="20sp"
             android:inputType="textEmailAddress" />
 
         <EditText
@@ -42,12 +42,12 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/registerPageFormEmail"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/edittext_selector"
             android:textColor="@color/colorNoir"
             android:textColorHint="@color/colorNoirTransparent"
             android:ems="12"
-		    android:textSize="26sp"
+		    android:textSize="20sp"
             android:hint="@string/loginUser"
             android:padding="8dp"
             android:inputType="textUri">
@@ -60,12 +60,12 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/registerPageFormUser"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/edittext_selector"
             android:textColor="@color/colorNoir"
             android:textColorHint="@color/colorNoirTransparent"
             android:ems="12"
-		    android:textSize="26sp"
+		    android:textSize="20sp"
             android:hint="@string/loginPassword"
             android:inputType="textPassword"
             android:padding="8dp" >
@@ -75,14 +75,14 @@
             android:id="@+id/registerPageButtonRegister"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="10dp"
             android:layout_below="@+id/registerPageFormPassword"
             android:paddingLeft="25dp"
             android:paddingRight="25dp"
             android:text="@string/registerGo"
             android:background="@drawable/button_authentification_page_selector"
             android:textColor="@color/colorMainText"
-            android:textSize="26sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"

@@ -1,7 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" >
+        <shape>
+            <solid
+                android:color="#D0f3ae1b" />
+            <stroke
+                android:width="1dp"
+                android:color="#D0bb6008" />
+            <corners
+                android:radius="3dp" />
+            <padding
+                android:left="10dp"
+                android:top="10dp"
+                android:right="10dp"
+                android:bottom="10dp" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <gradient
+                android:startColor="#D0f3ae1b"
+                android:endColor="#D0bb6008"
+                android:angle="270" />
+            <stroke
+                android:width="1dp"
+                android:color="#D0bb6008" />
+            <corners
+                android:radius="4dp" />
+            <padding
+                android:left="10dp"
+                android:top="10dp"
+                android:right="10dp"
+                android:bottom="10dp" />
+        </shape>
+    </item>
+</selector>
+<!--
+<?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <!--<item>
+    &lt;!&ndash;<item>
         <shape>
             <padding android:top="0dp" android:right="0dp" android:bottom="1dp" android:left="0dp" />
             <solid android:color="#02000000" />
@@ -42,16 +80,16 @@
             <padding android:top="0dp" android:right="0dp" android:bottom="1dp" android:left="0dp" />
             <solid android:color="#30000000" />
         </shape>
-    </item>-->
+    </item>&ndash;&gt;
     <item
         android:bottom="1dp"
         android:left="-7dp"
         android:right="-7dp"
         android:top="-7dp">
         <shape android:shape="rectangle" >
-                      <stroke
+                      &lt;!&ndash;<stroke
                 android:width="2dp"
-                android:color="@color/colorButtonEnd" />
+                android:color="@color/colorButtonEnd" />&ndash;&gt;
 
             <solid 
                 android:color="#EEFF8300"  />
@@ -64,4 +102,4 @@
         </shape>
     </item>
 
-</layer-list>
+</layer-list>-->

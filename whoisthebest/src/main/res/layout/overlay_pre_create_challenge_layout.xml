@@ -38,7 +38,7 @@
 		<TextView
 			android:text="Your challenge don't exist !"
 			android:id="@+id/textInfoPreCreateChallenge"
-			android:textSize="25sp"
+			android:textSize="28sp"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_centerHorizontal="true" />
@@ -48,6 +48,7 @@
 			android:id="@+id/textPreCreateChallenge"
 			android:layout_below="@+id/textInfoPreCreateChallenge"
 			android:layout_marginTop="40dp"
+			android:textSize="20sp"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_centerHorizontal="true" />
@@ -59,7 +60,6 @@
 	        android:layout_height="wrap_content"
 			android:layout_marginTop="10dp"
 	        android:layout_centerHorizontal="true"
-	        android:background="@color/colorMenu"
 	        android:paddingTop="5dp"
 	        android:paddingBottom="5dp"
 	        android:paddingLeft="5dp"
@@ -69,8 +69,9 @@
 	            android:id="@+id/button1"
 	            android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-	            android:background="@drawable/button_menu_overlay"
+	            android:background="@drawable/button_authentification_page_selector"
 	            android:onClick="createChallenge"
+				android:textSize="18sp"
 	            android:text="Yes"
 	            android:textColor="@color/colorMainText" />
 
@@ -81,8 +82,9 @@
 	            android:layout_alignLeft="@+id/button1"
 	            android:layout_alignRight="@+id/button1"
 	            android:layout_below="@+id/button1"
+				android:textSize="18sp"
 	            android:layout_marginTop="5dp"
-	            android:background="@drawable/button_menu_overlay"
+	            android:background="@drawable/button_authentification_page_selector"
 	            android:onClick="killActivity"
 	            android:text="NO"
 	            android:textColor="@color/colorMainText" />

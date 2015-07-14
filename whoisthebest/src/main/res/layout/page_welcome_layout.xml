@@ -20,8 +20,8 @@
             android:id="@+id/header3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp">
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="40dp">
         <Button
             android:id="@+id/authPageButtonLogin"
             android:layout_width="fill_parent"
@@ -33,7 +33,7 @@
             android:paddingRight="35dp"
             android:text="@string/loginButton"
             android:textColor="@color/colorMainText"
-            android:textSize="26sp"/>
+            android:textSize="20sp"/>
 
         <Button
             android:id="@+id/authPageButtonRegister"
@@ -42,12 +42,12 @@
             android:layout_below="@+id/authPageButtonLogin"
             android:layout_centerHorizontal="true"
             android:background="@drawable/button_authentification_page_selector"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="10dp"
             android:paddingLeft="35dp"
             android:paddingRight="35dp"
             android:text="@string/registerButton"
             android:textColor="@color/colorMainText"
-            android:textSize="26sp" />
+            android:textSize="20sp" />
 
     </RelativeLayout>
     </RelativeLayout>

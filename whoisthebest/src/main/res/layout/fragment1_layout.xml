@@ -13,7 +13,7 @@
         android:id="@+id/fragmentPagesHeader"
         android:layout_width="fill_parent"
         android:layout_height="48dp"
-        android:background="@color/colorFrame"
+        android:background="@drawable/new_top"
         android:gravity="center">
 
 

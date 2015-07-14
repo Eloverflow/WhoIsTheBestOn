@@ -16,7 +16,8 @@
             android:layout_height="48dp"
             android:background="@color/colorTransparent"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+			android:onClick="killActivity" >
 
 
         </LinearLayout>
@@ -30,8 +31,9 @@
                 android:id="@+id/mainPageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/icone_setting_pushed"
+                android:background="@drawable/new_button_menu_reverse"
                 android:layout_alignParentRight="true"
+				android:padding="25dp"
                 android:contentDescription="@string/boutonSettingDesc"
                 android:textColor="@color/colorTransparent"
                 android:onClick="killActivity"   />
@@ -56,7 +58,7 @@
 	        android:layout_height="wrap_content"
 	        android:layout_centerHorizontal="true"
 	        android:layout_centerVertical="true"
-	        android:background="@color/colorMenu"
+			android:background="@drawable/new_button"
 	        android:paddingTop="5dp"
 	        android:paddingBottom="5dp"
 	        android:paddingLeft="5dp"
@@ -68,7 +70,7 @@
                 android:layout_height="wrap_content"
 	            android:layout_alignParentRight="true"
 	            android:layout_marginRight="0dp"
-	            android:background="@drawable/button_menu_overlay"
+	            android:background="@drawable/new_button"
 	            android:onClick="disconnect"
 	            android:text="@string/menuButtonDisconnect"
 	            android:textColor="@color/colorMainText" />
@@ -81,7 +83,7 @@
 	            android:layout_alignRight="@+id/button1"
 	            android:layout_below="@+id/button1"
 	            android:layout_marginTop="5dp"
-	            android:background="@drawable/button_menu_overlay"
+				android:background="@drawable/new_button"
 	            android:onClick="disconnect"
 	            android:text="@string/menuButtonDisconnect"
 	            android:textColor="@color/colorMainText" />
@@ -94,7 +96,7 @@
 	            android:layout_alignRight="@+id/button2"
 	            android:layout_below="@+id/button2"
 	            android:layout_marginTop="5dp"
-	            android:background="@drawable/button_menu_overlay"
+				android:background="@drawable/new_button"
 	            android:onClick="disconnect"
 	            android:text="@string/menuButtonDisconnect"
 	            android:textColor="@color/colorMainText" />
@@ -107,7 +109,7 @@
 	            android:layout_alignRight="@+id/button3"
 	            android:layout_below="@+id/button3"
 	            android:layout_marginTop="5dp"
-	            android:background="@drawable/button_menu_overlay"
+				android:background="@drawable/new_button"
 	            android:onClick="disconnect"
 	            android:text="@string/menuButtonDisconnect"
 	            android:textColor="@color/colorMainText" />
@@ -120,7 +122,7 @@
 	            android:layout_alignRight="@+id/button4"
 	            android:layout_below="@+id/button4"
 	            android:layout_marginTop="5dp"
-	            android:background="@drawable/button_menu_overlay"
+				android:background="@drawable/new_button"
 	            android:onClick="launchTests"
 	            android:text="Launch Tests"
 	            android:textColor="@color/colorMainText" />
