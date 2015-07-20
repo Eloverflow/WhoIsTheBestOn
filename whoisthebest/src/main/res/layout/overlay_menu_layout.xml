@@ -21,24 +21,24 @@
 
 
         </LinearLayout>
-
+<!--
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
 
-            <ImageButton
-                android:id="@+id/mainPageButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/new_button_menu_reverse"
-                android:layout_alignParentRight="true"
+			<ImageButton
+				android:id="@+id/mainPageButton"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:background="@drawable/new_button_menu_reverse"
+				android:layout_alignParentRight="true"
 				android:padding="25dp"
-                android:contentDescription="@string/boutonSettingDesc"
-                android:textColor="@color/colorTransparent"
-                android:onClick="killActivity"   />
+				android:contentDescription="@string/boutonSettingDesc"
+				android:textColor="@color/colorTransparent"
+				android:onClick="killActivity"   />
 
-        </RelativeLayout>
+        </RelativeLayout>-->
 
 
 
@@ -58,7 +58,7 @@
 	        android:layout_height="wrap_content"
 	        android:layout_centerHorizontal="true"
 	        android:layout_centerVertical="true"
-			android:background="@drawable/new_button"
+			android:background="@drawable/new_menu_background"
 	        android:paddingTop="5dp"
 	        android:paddingBottom="5dp"
 	        android:paddingLeft="5dp"

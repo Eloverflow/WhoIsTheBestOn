@@ -12,14 +12,13 @@
         android:id="@+id/fragmentPagesHeader"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="@color/colorFrame"
+        android:background="@drawable/new_top"
         android:gravity="center" >
 
         <TextView
             android:id="@+id/fragmentPagesTittle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="6dp"
             android:text="Default"
             android:padding="0dp"
             android:textColor="@color/colorMainText"
@@ -53,23 +52,51 @@
         android:layout_height="fill_parent"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/fragmentPagesHeader"
-        android:background="@color/colorBackground" >
+        android:background="@color/colorBackground">
 
 
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="200dp"
+            android:id="@+id/addImagesVideo"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:text="Click here to add Video/Images"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/border_bottom"
+            android:onClick="addVideoImages"/>
 
         <EditText
             android:layout_width="fill_parent"
-            android:layout_height="80dp"
+            android:layout_height="150dp"
+            android:gravity="center"
             android:hint="Description of the challenge"
-            android:id="@+id/textView"
+            android:id="@+id/challengeDescription"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/videoView1"
+            android:layout_below="@+id/addImagesVideo"
             android:layout_alignParentStart="true"
             android:background="@drawable/border_bottom"/>
 
 
 
+
+
     </RelativeLayout>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/submitButton"
+        android:background="@drawable/new_top"
+        android:text="Submit"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

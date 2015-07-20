@@ -1,0 +1,121 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+ 	
+	<!-- Header aligned to top -->
+
+	<RelativeLayout android:id="@+id/overlay_fragment_top"
+                 android:layout_width="fill_parent"
+                 android:layout_height="fill_parent"
+    				android:orientation="vertical"
+            	android:layout_margin="0dp">
+
+        <!-- Header aligned to top -->
+
+
+
+	<RelativeLayout
+	    android:gravity="center"
+	    android:id="@+id/overlay_fragment_body"
+	    android:layout_width="match_parent"
+	    android:layout_height="fill_parent"
+	    android:background="@color/colorNoirTransparent"
+	    android:onClick="killActivity" >
+
+
+
+		<TextView
+			android:text="You can add one video or many images"
+			android:id="@+id/textPreCreateChallenge"
+			android:textSize="20sp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true" />
+
+	    <RelativeLayout
+	        android:id="@+id/overlay_fragment_container"
+	        android:layout_width="300dp"
+			android:layout_below="@+id/textPreCreateChallenge"
+	        android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
+	        android:layout_centerHorizontal="true"
+	        android:paddingTop="5dp"
+	        android:paddingBottom="5dp"
+	        android:paddingLeft="5dp"
+	        android:paddingRight="5dp" >
+
+			<Button
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:id="@+id/addVideo"
+				android:textSize="20sp"
+				android:textColor="@color/colorMainText"
+				android:background="@drawable/new_button"
+				android:text="Add Video From Phone"/>
+
+			<Button
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:id="@+id/addImages"
+				android:textSize="20sp"
+				android:background="@drawable/new_button"
+				android:textColor="@color/colorMainText"
+				android:layout_below="@+id/addVideo"
+				android:text="Add Images From Phone"/>
+
+			<Button
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:id="@+id/addYoutubeLink"
+				android:visibility="gone"
+				android:textSize="20sp"
+				android:textColor="@color/colorMainText"
+				android:background="@drawable/new_button"
+				android:layout_below="@+id/addImages"
+				android:text="Add Youtube Link"/>
+
+			<Button
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:id="@+id/addImagesLink"
+				android:visibility="gone"
+				android:textColor="@color/colorMainText"
+				android:textSize="20sp"
+				android:background="@drawable/new_button"
+				android:layout_below="@+id/addYoutubeLink"
+				android:text="Add Images Links"/>
+
+			<Button
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:id="@+id/takeVideo"
+				android:textColor="@color/colorMainText"
+				android:textSize="20sp"
+				android:background="@drawable/new_button"
+				android:layout_below="@+id/addImagesLink"
+				android:text="Take a Video"/>
+
+			<Button
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:id="@+id/takeGifVideo"
+				android:textColor="@color/colorMainText"
+				android:textSize="20sp"
+				android:background="@drawable/new_button"
+				android:layout_below="@+id/takeVideo"
+				android:text="Take a GIF Video"/>
+
+			<Button
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:id="@+id/takeImages"
+				android:textColor="@color/colorMainText"
+				android:textSize="20sp"
+				android:background="@drawable/new_button"
+				android:layout_below="@+id/takeGifVideo"
+				android:text="Take Images"/>
+	    </RelativeLayout>
+	</RelativeLayout>
+    
+	</RelativeLayout>
+	
+    
+</merge>

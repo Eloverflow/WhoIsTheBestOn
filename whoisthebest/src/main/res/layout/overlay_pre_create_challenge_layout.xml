@@ -10,17 +10,6 @@
 
         <!-- Header aligned to top -->
 
-        <LinearLayout
-            android:id="@+id/fragmentPagesHeader"
-            android:layout_width="fill_parent"
-            android:layout_height="48dp"
-            android:background="@color/colorTransparent"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-
-        </LinearLayout>
-
 
 
 	<RelativeLayout
@@ -28,8 +17,6 @@
 	    android:id="@+id/overlay_fragment_body"
 	    android:layout_width="match_parent"
 	    android:layout_height="fill_parent"
-	    android:layout_alignParentLeft="true"
-	    android:layout_below="@+id/fragmentPagesHeader"
 	    android:background="@color/colorNoirTransparent"
 	    android:onClick="killActivity" >
 
@@ -86,7 +73,7 @@
 	            android:layout_marginTop="5dp"
 	            android:background="@drawable/button_authentification_page_selector"
 	            android:onClick="killActivity"
-	            android:text="NO"
+	            android:text="No"
 	            android:textColor="@color/colorMainText" />
 	    </RelativeLayout>
 	</RelativeLayout>

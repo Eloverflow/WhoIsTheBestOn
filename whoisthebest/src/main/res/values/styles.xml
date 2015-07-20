@@ -12,6 +12,7 @@
         <item name="android:textViewStyle">@style/textregular</item>
         <item name="android:imageButtonStyle">@style/Theme.Transparent</item>
 
+
         <!--Animation applied to all activity-->
         <item name="android:windowAnimationStyle">@style/MyActivityAnimations</item>
     </style>

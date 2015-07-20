@@ -36,6 +36,13 @@ public class PageCreateChallenge extends Activity {
 
     }
 
+    public void addVideoImages(View v){
+
+        Intent myIntent = new Intent(this, OverlayAddVideoImagesChallenge.class);
+        this.startActivity(myIntent);
+
+    }
+
     public void onBackPressed() {
         finish(null);
     }

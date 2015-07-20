@@ -14,14 +14,13 @@
         android:id="@+id/fragmentPagesHeader"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="@color/colorFrame"
+        android:background="@drawable/new_top"
         android:gravity="center" >
 
         <TextView
             android:id="@+id/fragmentPagesTittle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="6dp"
             android:text="Default"
             android:padding="0dp"
             android:textColor="@color/colorMainText"
@@ -69,7 +68,7 @@
 
         <TextView
             android:layout_width="fill_parent"
-            android:layout_height="80dp"
+            android:layout_height="150dp"
             android:text="Description of the challenge"
             android:id="@+id/textView"
             android:layout_alignParentLeft="true"

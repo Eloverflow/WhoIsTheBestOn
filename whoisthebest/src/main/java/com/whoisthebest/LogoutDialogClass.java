@@ -3,6 +3,7 @@ package com.whoisthebest;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -32,6 +33,7 @@ yes = (Button) findViewById(R.id.btn_yes);
 no = (Button) findViewById(R.id.btn_no);
 yes.setOnClickListener(this);
 no.setOnClickListener(this);
+    this.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
 }
 

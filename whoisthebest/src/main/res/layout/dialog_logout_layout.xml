@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="90dp"
-    android:background="@color/colorDialog"
+    android:layout_height="wrap_content"
+    android:background="@drawable/new_menu_background"
     android:orientation="vertical" >
 
     <TextView
@@ -28,7 +28,7 @@
             android:id="@+id/btn_yes"
             android:layout_width="100dp"
             android:layout_height="40dp"
-            android:background="@drawable/button_authentification_pages"
+            android:background="@drawable/new_button"
             android:clickable="true"
             android:padding="3dp"
             android:text="@string/exitYes"
@@ -40,7 +40,7 @@
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_marginLeft="5dp"
-            android:background="@drawable/button_authentification_pages"
+            android:background="@drawable/new_button"
             android:clickable="true"
             android:padding="3dp"
             android:text="@string/exitNo"

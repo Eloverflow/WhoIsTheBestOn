@@ -75,6 +75,11 @@
             android:name=".PageCreateChallenge"
             android:label="@string/app_name"
             android:theme="@style/Theme.Transparent"  />
+        <activity
+            android:name=".OverlayAddVideoImagesChallenge"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Transparent"  />
+
 
         <receiver
             android:name=".AlarmReceiver"
